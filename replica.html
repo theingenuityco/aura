@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ingenuity Co.</title>
+    <meta name="description" content="Where bold dreams become new realities.">
+    
+    <!-- SUPER.SO HEAD TAG INJECTION -->
+    <link rel="stylesheet" href="./v1/css/enhancement.css">
+    
+    <style>
+        /* Base styles from actual site */
+        :root {
+            --padding-layout: 1.1rem;
+            --border-radii-layout: 5px;
+            --layout-max-width: 900px;
+            --title-size: 2.5rem;
+            --primary-font: Inter, Inter-fallback, Helvetica, sans-serif;
+            --secondary-font: Inter, Inter-fallback, Helvetica, sans-serif;
+            --color-text-default: #464646;
+            --color-bg-default: #F7F7F7;
+            --color-border-default: #EFEEEE;
+            --navbar-height: 56px;
+            --navbar-shadow: rgba(0, 0, 0, 0.12) 0px 4px 8px -2px;
+        }
+        
+        html {
+            scroll-padding-top: 62px;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--secondary-font);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .super-root {
+            min-height: 100vh;
+        }
+        
+        /* Navbar */
+        .super-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--navbar-shadow);
+            background: var(--color-bg-default);
+            height: var(--navbar-height);
+        }
+        
+        .super-navbar__content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            height: 100%;
+            max-width: var(--layout-max-width);
+            margin: 0 auto;
+        }
+        
+        .super-navbar__logo-text {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-default);
+            text-decoration: none;
+        }
+        
+        .super-navbar__actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .super-navbar__theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        /* Content */
+        .super-content-wrapper {
+            min-height: calc(100vh - var(--navbar-height));
+        }
+        
+        .super-content {
+            max-width: var(--layout-max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header with cover */
+        .notion-header {
+            margin-bottom: 2rem;
+        }
+        
+        .notion-header__cover {
+            height: 50vh;
+            position: relative;
+            margin: 0 -2rem 2rem -2rem;
+            border-radius: 0 0 var(--border-radii-layout) var(--border-radii-layout);
+            overflow: hidden;
+        }
+        
+        .notion-header__cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 50%;
+        }
+        
+        .notion-header__content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .notion-header__title {
+            font-size: var(--title-size);
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.2;
+        }
+        
+        /* Content blocks */
+        .notion-root {
+            line-height: 1.6;
+        }
+        
+        .notion-text {
+            margin-bottom: 1rem;
+            color: var(--color-text-default);
+        }
+        
+        .notion-heading {
+            font-weight: 600;
+            margin: 2rem 0 1rem 0;
+            line-height: 1.3;
+        }
+        
+        .notion-heading:first-child {
+            margin-top: 0;
+        }
+        
+        .notion-quote {
+            border-left: 4px solid var(--color-text-default);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: var(--border-radii-layout);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .super-navbar__content {
+                padding: 0 1rem;
+            }
+            
+            .super-content {
+                padding: 0 1rem;
+            }
+            
+            .notion-header__cover {
+                margin: 0 -1rem 2rem -1rem;
+            }
+            
+            .notion-header__title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="super-root">
+        <!-- Navigation -->
+        <nav class="super-navbar">
+            <div class="super-navbar__content">
+                <a href="/" class="super-navbar__logo-text">The Ingenuity Co.</a>
+                <div class="super-navbar__actions">
+                    <button class="super-navbar__theme-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="super-content-wrapper">
+            <main class="super-content">
+                <!-- Header with cover image -->
+                <div class="notion-header">
+                    <div class="notion-header__cover">
+                        <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/a888236f-811a-4e2d-8e7d-95fb26b514e8/webb1/w=1920,quality=90,fit=scale-down" 
+                             alt="The Ingenuity Co." 
+                             class="notion-header__cover-image">
+                    </div>
+                    <div class="notion-header__content">
+                        <h1 class="notion-header__title">The Ingenuity Co.</h1>
+                    </div>
+                </div>
+
+                <!-- Page content -->
+                <article class="notion-root">
+                    <p class="notion-text">
+                        <strong>Where bold dreams become new realities.</strong>
+                    </p>
+                    
+                    <p class="notion-text">
+                        We're an innovation-first company building tools and systems at the bleeding edge of human capability. At The Ingenuity Co, we don't just imagine the future, we engineer it.
+                    </p>
+                    
+                    <p class="notion-text">
+                        We started with a simple belief that imagination is humanity's most powerful technology. The Ingenuity Co was born out of a desire to bridge worlds (science and art, code and concept, today and tomorrow). We're not here to iterate incrementally. We're here to craft the tools that will define entirely new paradigms.
+                    </p>
+                    
+                    <p class="notion-text">
+                        Our name reflects our ethos - a deep reverence for original thinking, relentless experimentation, and the courage to bring improbable ideas to life. We're not chasing trends; we're charting unknown paths.
+                    </p>
+                    
+                    <h2 class="notion-heading">✨ Our Mission</h2>
+                    
+                    <p class="notion-text">
+                        To empower dreamers, builders, and pioneers to rewrite reality through audacious technologies and open imagination.
+                    </p>
+                    
+                    <p class="notion-text">
+                        At The Ingenuity Co, our mission is rooted in a fundamental belief that the boundaries of what's possible are meant to be challenged. We see technology not as an end, but as a means to amplify human potential, unlocking new forms of expression, collaboration, and transformation.
+                    </p>
+                    
+                    <p class="notion-text">
+                        We're here to serve the curious minds who dare to imagine differently, to build platforms that encourage exploration without constraint, and to bring bold visions into existence with precision and care. Whether you're an artist experimenting with new mediums or an engineer architecting the next revolution, we aim to provide the tools, inspiration, and infrastructure to help you shape the world, not just adapt to it.
+                    </p>
+                    
+                    <h2 class="notion-heading">💡 Our Philosophy</h2>
+                    
+                    <p class="notion-text">
+                        We believe the future belongs to those who can blend logic with wonder. Every product we build is an experiment in radical possibility - guided by ethics, grounded in engineering, and inspired by imagination.
+                    </p>
+                    
+                    <p class="notion-text">
+                        We care deeply about design, responsibility, and long-term thinking. We're driven not by hype cycles, but by the timeless pursuit of progress that uplifts people and expands what's possible.
+                    </p>
+                    
+                    <p class="notion-text">
+                        <strong>The Ingenuity Co</strong>
+                    </p>
+                    
+                    <p class="notion-text">
+                        We don't move fast. We don't break things. Instead, we rewrite reality.
+                    </p>
+                    
+                    <blockquote class="notion-quote">
+                        <em>We're here to challenge the limits of what's possible, because the status quo was never the goal. The Ingenuity Co is my vow to every dreamer who dares to build boldly. The future isn't ahead of us, it's taking shape within us, with every wild idea we dare to build.</em>
+                        <br><br>
+                        <strong>- Rudraprasad Das, Founder</strong>
+                    </blockquote>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <!-- SUPER.SO END OF BODY INJECTION -->
+    <script src="./v1/js/core/ingenuity.js"></script>
+    <script src="./v1/js/enhancement.js"></script>
+</body>
+</html>

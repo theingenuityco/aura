@@ -1,0 +1,146 @@
+/* 
+ * The Ingenuity Co - Brand Colors & Core Variables
+ * CDN Enhancement System v1
+ * 
+ * This file defines the core brand identity colors and variables
+ * that can be used throughout the enhancement system.
+ */
+
+:root {
+    /* ===== THE INGENUITY CO BRAND PALETTE ===== */
+    
+    /* Primary Brand Colors */
+    --ing-primary: #FF6B35;           /* Vibrant Orange - Main brand color */
+    --ing-secondary: #2E86AB;         /* Professional Blue - Supporting color */
+    --ing-accent: #F7931E;            /* Warm Orange - Highlight/accent color */
+    --ing-neutral: #4A4A4A;           /* Charcoal Gray - Primary text */
+    
+    /* Extended Color Palette */
+    --ing-light: #F8F9FA;             /* Light background */
+    --ing-white: #FFFFFF;             /* Pure white */
+    --ing-success: #28A745;           /* Success states */
+    --ing-warning: #FFC107;           /* Warning states */
+    --ing-danger: #DC3545;            /* Error states */
+    --ing-info: #17A2B8;              /* Info states */
+    
+    /* Color Variations */
+    --ing-primary-light: rgba(255, 107, 53, 0.1);
+    --ing-primary-hover: #E55A2B;
+    --ing-secondary-light: rgba(46, 134, 171, 0.1);
+    --ing-secondary-hover: #245F7A;
+    --ing-accent-light: rgba(247, 147, 30, 0.1);
+    --ing-accent-hover: #D87D1A;
+    
+    /* ===== GRADIENTS ===== */
+    --ing-gradient-primary: linear-gradient(135deg, var(--ing-primary), var(--ing-accent));
+    --ing-gradient-secondary: linear-gradient(135deg, var(--ing-secondary), var(--ing-primary));
+    --ing-gradient-subtle: linear-gradient(135deg, var(--ing-light), var(--ing-white));
+    
+    /* ===== SHADOWS ===== */
+    --ing-shadow-primary: 0 4px 15px rgba(255, 107, 53, 0.3);
+    --ing-shadow-secondary: 0 4px 15px rgba(46, 134, 171, 0.3);
+    --ing-shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --ing-shadow-bold: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --ing-shadow-hover: 0 6px 20px rgba(255, 107, 53, 0.4);
+    
+    /* ===== TYPOGRAPHY ===== */
+    --ing-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --ing-font-weight-normal: 400;
+    --ing-font-weight-medium: 500;
+    --ing-font-weight-semibold: 600;
+    --ing-font-weight-bold: 700;
+    
+    /* ===== SPACING ===== */
+    --ing-spacing-xs: 0.25rem;        /* 4px */
+    --ing-spacing-sm: 0.5rem;         /* 8px */
+    --ing-spacing-md: 1rem;           /* 16px */
+    --ing-spacing-lg: 1.5rem;         /* 24px */
+    --ing-spacing-xl: 2rem;           /* 32px */
+    --ing-spacing-xxl: 3rem;          /* 48px */
+    
+    /* ===== BORDER RADIUS ===== */
+    --ing-radius-sm: 4px;
+    --ing-radius-md: 8px;
+    --ing-radius-lg: 12px;
+    --ing-radius-xl: 16px;
+    --ing-radius-pill: 25px;
+    --ing-radius-circle: 50%;
+    
+    /* ===== TRANSITIONS ===== */
+    --ing-transition-fast: all 0.2s ease;
+    --ing-transition-medium: all 0.3s ease;
+    --ing-transition-slow: all 0.5s ease;
+    --ing-transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== BRAND COLOR UTILITY CLASSES ===== */
+
+/* Background Colors */
+.ing-bg-primary { background-color: var(--ing-primary) !important; }
+.ing-bg-secondary { background-color: var(--ing-secondary) !important; }
+.ing-bg-accent { background-color: var(--ing-accent) !important; }
+.ing-bg-neutral { background-color: var(--ing-neutral) !important; }
+.ing-bg-light { background-color: var(--ing-light) !important; }
+.ing-bg-white { background-color: var(--ing-white) !important; }
+
+/* Text Colors */
+.ing-text-primary { color: var(--ing-primary) !important; }
+.ing-text-secondary { color: var(--ing-secondary) !important; }
+.ing-text-accent { color: var(--ing-accent) !important; }
+.ing-text-neutral { color: var(--ing-neutral) !important; }
+.ing-text-white { color: var(--ing-white) !important; }
+
+/* Border Colors */
+.ing-border-primary { border-color: var(--ing-primary) !important; }
+.ing-border-secondary { border-color: var(--ing-secondary) !important; }
+.ing-border-accent { border-color: var(--ing-accent) !important; }
+
+/* Gradient Backgrounds */
+.ing-gradient-primary { 
+    background: var(--ing-gradient-primary) !important; 
+    color: var(--ing-white);
+}
+.ing-gradient-secondary { 
+    background: var(--ing-gradient-secondary) !important; 
+    color: var(--ing-white);
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Ensure proper contrast for text on colored backgrounds */
+.ing-bg-primary,
+.ing-bg-secondary,
+.ing-bg-accent,
+.ing-bg-neutral {
+    color: var(--ing-white);
+}
+
+.ing-bg-light,
+.ing-bg-white {
+    color: var(--ing-neutral);
+}
+
+/* Focus states for accessibility */
+.ing-focus-ring:focus {
+    outline: 2px solid var(--ing-primary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --ing-primary: #FF4500;
+        --ing-secondary: #1E5A8A;
+        --ing-neutral: #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --ing-transition-fast: none;
+        --ing-transition-medium: none;
+        --ing-transition-slow: none;
+        --ing-transition-bounce: none;
+    }
+}
