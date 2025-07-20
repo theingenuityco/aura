@@ -1,4 +1,4 @@
-# Aura
+# 🌟 Aura
 
 > **The Ingenuity Co's digital presence extension system**
 
