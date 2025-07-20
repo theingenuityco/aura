@@ -17,7 +17,7 @@
  * Integration: Primary source theingenuity.co with extension to Super.so and GitHub Pages
  * Dependencies: Requires /v1/js/core/ingenuity.js (AuraCore system)
  * Author: The Ingenuity Co Development Team - Aura Enhancement Division
- * License: Proprietary
+ * License: MIT
  */
 
 (function(window, document) {
@@ -85,10 +85,6 @@
         }
     }
 
-    // Legacy logging function for backward compatibility
-    function enhancementLog(level, message, data) {
-        return auraEnhancementLog(level, message, data);
-    }
 
     /**
      * Checks if the Aura core library is available
@@ -97,10 +93,7 @@
     function isCoreLibraryAvailable() {
         return (typeof window.AuraCore !== 'undefined' &&
                window.AuraCore &&
-               typeof window.AuraCore.init === 'function') ||
-               (typeof window.IngenuityCore !== 'undefined' &&
-               window.IngenuityCore &&
-               typeof window.IngenuityCore.init === 'function');
+               typeof window.AuraCore.init === 'function');
     }
 
     /**
@@ -116,10 +109,6 @@
             script.async = true;
             script.onload = function() {
                 auraEnhancementLog('info', 'Aura core library loaded successfully - mystical energy activated');
-                // Set up AuraCore reference from IngenuityCore for compatibility
-                if (window.IngenuityCore && !window.AuraCore) {
-                    window.AuraCore = window.IngenuityCore;
-                }
                 resolve();
             };
             script.onerror = function() {
@@ -178,19 +167,10 @@
             };
         }
 
-        // Legacy configuration support
-        if (window.IngenuityConfig && !window.AuraConfig) {
-            auraEnhancementLog('info', 'Found legacy configuration, adapting to Aura system', window.IngenuityConfig);
-            finalConfig = {
-                ...finalConfig,
-                ...window.IngenuityConfig
-            };
-        }
-
         // Check for URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('aura-debug') || urlParams.has('ingenuity-debug')) {
-            finalConfig.debug = (urlParams.get('aura-debug') === 'true') || (urlParams.get('ingenuity-debug') === 'true');
+        if (urlParams.has('aura-debug')) {
+            finalConfig.debug = (urlParams.get('aura-debug') === 'true');
             auraEnhancementLog('info', `Aura debug mode set via URL: ${finalConfig.debug}`);
         }
 
@@ -253,15 +233,13 @@
         if (AURA_ENHANCEMENT_CONFIG.compatibility.checkConflicts) {
             const potentialConflicts = [
                 'AuraEnhancement',
-                'IngenuityEnhancer',
                 'SuperSoEnhancer',
                 'NotionEnhancer'
             ];
 
             potentialConflicts.forEach(conflict => {
                 if (window[conflict] &&
-                    window[conflict] !== window.AuraCore &&
-                    window[conflict] !== window.IngenuityCore) {
+                    window[conflict] !== window.AuraCore) {
                     results.warnings.push(`Potential mystical energy conflict detected: ${conflict}`);
                 }
             });
@@ -318,8 +296,8 @@
             // Wait for Aura core library to be ready
             await waitForCoreLibrary();
 
-            // Get the core reference (AuraCore or IngenuityCore for compatibility)
-            const coreLibrary = window.AuraCore || window.IngenuityCore;
+            // Get the core reference
+            const coreLibrary = window.AuraCore;
             
             // Initialize Aura core library with production settings
             auraEnhancementLog('info', 'Initializing mystical Aura core library...');
@@ -347,8 +325,6 @@
                 platforms: AURA_ENHANCEMENT_CONFIG.platforms
             };
 
-            // Maintain backward compatibility
-            window.IngenuityEnhancer = window.AuraEnhancement;
 
             return true;
 
@@ -385,8 +361,6 @@
                 platforms: AURA_ENHANCEMENT_CONFIG.platforms
             };
 
-            // Maintain backward compatibility
-            window.IngenuityEnhancer = window.AuraEnhancement;
 
             auraEnhancementLog('info', 'Minimal Aura mode initialized successfully - basic mystical energy active');
             return true;
@@ -411,14 +385,9 @@
             return;
         }
 
-        // Legacy check for backward compatibility
-        if (window.IngenuityEnhancer && window.IngenuityEnhancer.initialized && !window.AuraEnhancement) {
-            auraEnhancementLog('warn', 'Legacy enhancement system detected - upgrading to Aura Enhancement');
-        }
-
         // Check if Aura initialization is disabled
-        if (window.AuraNoAutoInit || window.IngenuityNoAutoInit) {
-            auraEnhancementLog('info', 'Aura auto-initialization disabled via AuraNoAutoInit/IngenuityNoAutoInit flag');
+        if (window.AuraNoAutoInit) {
+            auraEnhancementLog('info', 'Aura auto-initialization disabled via AuraNoAutoInit flag');
             return;
         }
 
@@ -446,8 +415,6 @@
 
     // Expose main Aura initialization function globally
     window.initAuraEnhancements = initializeEnhancements;
-    // Maintain backward compatibility
-    window.initIngenuityEnhancements = initializeEnhancements;
 
     // Log that the Aura enhancement script has loaded
     auraEnhancementLog('info', 'Aura Enhancement script loaded and mystical energy ready');
@@ -463,7 +430,7 @@
 
     // Handle page visibility changes for mystical energy refresh
     document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible' && (window.AuraCore || window.IngenuityCore)) {
+        if (document.visibilityState === 'visible' && window.AuraCore) {
             auraEnhancementLog('info', 'Page became visible - refreshing mystical energy field');
         }
     });
@@ -486,19 +453,17 @@
  *    <script src="https://cdn.theingenuity.co/v1/js/enhancement.js"></script>
  * 2. Optionally enable Aura debug mode in "Head Tag" injection:
  *    <script>window.AuraConfig = { debug: true, auraLogging: true };</script>
- *    OR (legacy): <script>window.IngenuityConfig = { debug: true };</script>
  *
  * GitHub Pages Integration:
  * 1. Include in your HTML head or before closing body tag:
  *    <script src="https://cdn.theingenuity.co/v1/js/enhancement.js"></script>
  * 2. Add mystical energy classes to elements you want to enhance:
- *    - Add .aura-enhanced to containers (legacy: .ingenuity-enhanced)
- *    - Use .aura-* utility classes for specific styling (legacy: .ing-*)
+ *    - Add .aura-enhanced to containers
+ *    - Use .aura-* utility classes for specific styling
  *
  * MYSTICAL FEATURES:
  * - Automatic initialization with invisible mystical energy field
  * - Cross-platform energy extension capabilities
- * - Backward compatibility with legacy IngenuityEnhancer
  * - Production-optimized with graceful mystical degradation
  * - API access: window.AuraEnhancement or window.initAuraEnhancements()
  *

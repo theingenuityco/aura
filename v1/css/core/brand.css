@@ -1,146 +1,146 @@
-/* 
- * The Ingenuity Co - Brand Colors & Core Variables
- * CDN Enhancement System v1
- * 
+/*
+ * The Ingenuity Co - Aura Brand Colors & Core Variables
+ * Aura Enhancement System v1.0.0
+ *
  * This file defines the core brand identity colors and variables
- * that can be used throughout the enhancement system.
+ * that can be used throughout the Aura enhancement system.
  */
 
 :root {
-    /* ===== THE INGENUITY CO BRAND PALETTE ===== */
+    /* ===== THE INGENUITY CO AURA PALETTE ===== */
     
-    /* Primary Brand Colors */
-    --ing-primary: #FF6B35;           /* Vibrant Orange - Main brand color */
-    --ing-secondary: #2E86AB;         /* Professional Blue - Supporting color */
-    --ing-accent: #F7931E;            /* Warm Orange - Highlight/accent color */
-    --ing-neutral: #4A4A4A;           /* Charcoal Gray - Primary text */
+    /* Primary Brand Colors - Calming Pastels */
+    --aura-primary: #A8D5E5;           /* Soft Sky Blue - Main brand color */
+    --aura-secondary: #D4C5E8;         /* Gentle Lavender - Supporting color */
+    --aura-accent: #B8E6D3;            /* Mint Green - Highlight/accent color */
+    --aura-neutral: #8B9DC3;           /* Muted Blue-Gray - Primary text */
     
     /* Extended Color Palette */
-    --ing-light: #F8F9FA;             /* Light background */
-    --ing-white: #FFFFFF;             /* Pure white */
-    --ing-success: #28A745;           /* Success states */
-    --ing-warning: #FFC107;           /* Warning states */
-    --ing-danger: #DC3545;            /* Error states */
-    --ing-info: #17A2B8;              /* Info states */
+    --aura-light: #F7F9FC;             /* Very Soft Blue-White background */
+    --aura-white: #FFFFFF;             /* Pure white */
+    --aura-success: #28A745;           /* Success states */
+    --aura-warning: #FFC107;           /* Warning states */
+    --aura-danger: #DC3545;            /* Error states */
+    --aura-info: #17A2B8;              /* Info states */
     
     /* Color Variations */
-    --ing-primary-light: rgba(255, 107, 53, 0.1);
-    --ing-primary-hover: #E55A2B;
-    --ing-secondary-light: rgba(46, 134, 171, 0.1);
-    --ing-secondary-hover: #245F7A;
-    --ing-accent-light: rgba(247, 147, 30, 0.1);
-    --ing-accent-hover: #D87D1A;
+    --aura-primary-light: rgba(168, 213, 229, 0.1);
+    --aura-primary-hover: #92C7DE;
+    --aura-secondary-light: rgba(212, 197, 232, 0.1);
+    --aura-secondary-hover: #C4B1DF;
+    --aura-accent-light: rgba(184, 230, 211, 0.1);
+    --aura-accent-hover: #A5DDC7;
     
     /* ===== GRADIENTS ===== */
-    --ing-gradient-primary: linear-gradient(135deg, var(--ing-primary), var(--ing-accent));
-    --ing-gradient-secondary: linear-gradient(135deg, var(--ing-secondary), var(--ing-primary));
-    --ing-gradient-subtle: linear-gradient(135deg, var(--ing-light), var(--ing-white));
+    --aura-gradient-primary: linear-gradient(135deg, var(--aura-primary), var(--aura-accent));
+    --aura-gradient-secondary: linear-gradient(135deg, var(--aura-secondary), var(--aura-primary));
+    --aura-gradient-subtle: linear-gradient(135deg, var(--aura-light), var(--aura-white));
     
     /* ===== SHADOWS ===== */
-    --ing-shadow-primary: 0 4px 15px rgba(255, 107, 53, 0.3);
-    --ing-shadow-secondary: 0 4px 15px rgba(46, 134, 171, 0.3);
-    --ing-shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --ing-shadow-bold: 0 8px 25px rgba(0, 0, 0, 0.15);
-    --ing-shadow-hover: 0 6px 20px rgba(255, 107, 53, 0.4);
+    --aura-shadow-primary: 0 4px 15px rgba(168, 213, 229, 0.3);
+    --aura-shadow-secondary: 0 4px 15px rgba(212, 197, 232, 0.3);
+    --aura-shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --aura-shadow-bold: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --aura-shadow-hover: 0 6px 20px rgba(168, 213, 229, 0.4);
     
     /* ===== TYPOGRAPHY ===== */
-    --ing-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --ing-font-weight-normal: 400;
-    --ing-font-weight-medium: 500;
-    --ing-font-weight-semibold: 600;
-    --ing-font-weight-bold: 700;
+    --aura-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --aura-font-weight-normal: 400;
+    --aura-font-weight-medium: 500;
+    --aura-font-weight-semibold: 600;
+    --aura-font-weight-bold: 700;
     
     /* ===== SPACING ===== */
-    --ing-spacing-xs: 0.25rem;        /* 4px */
-    --ing-spacing-sm: 0.5rem;         /* 8px */
-    --ing-spacing-md: 1rem;           /* 16px */
-    --ing-spacing-lg: 1.5rem;         /* 24px */
-    --ing-spacing-xl: 2rem;           /* 32px */
-    --ing-spacing-xxl: 3rem;          /* 48px */
+    --aura-spacing-xs: 0.25rem;        /* 4px */
+    --aura-spacing-sm: 0.5rem;         /* 8px */
+    --aura-spacing-md: 1rem;           /* 16px */
+    --aura-spacing-lg: 1.5rem;         /* 24px */
+    --aura-spacing-xl: 2rem;           /* 32px */
+    --aura-spacing-xxl: 3rem;          /* 48px */
     
     /* ===== BORDER RADIUS ===== */
-    --ing-radius-sm: 4px;
-    --ing-radius-md: 8px;
-    --ing-radius-lg: 12px;
-    --ing-radius-xl: 16px;
-    --ing-radius-pill: 25px;
-    --ing-radius-circle: 50%;
+    --aura-radius-sm: 4px;
+    --aura-radius-md: 8px;
+    --aura-radius-lg: 12px;
+    --aura-radius-xl: 16px;
+    --aura-radius-pill: 25px;
+    --aura-radius-circle: 50%;
     
     /* ===== TRANSITIONS ===== */
-    --ing-transition-fast: all 0.2s ease;
-    --ing-transition-medium: all 0.3s ease;
-    --ing-transition-slow: all 0.5s ease;
-    --ing-transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --aura-transition-fast: all 0.2s ease;
+    --aura-transition-medium: all 0.3s ease;
+    --aura-transition-slow: all 0.5s ease;
+    --aura-transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-/* ===== BRAND COLOR UTILITY CLASSES ===== */
+/* ===== AURA BRAND COLOR UTILITY CLASSES ===== */
 
 /* Background Colors */
-.ing-bg-primary { background-color: var(--ing-primary) !important; }
-.ing-bg-secondary { background-color: var(--ing-secondary) !important; }
-.ing-bg-accent { background-color: var(--ing-accent) !important; }
-.ing-bg-neutral { background-color: var(--ing-neutral) !important; }
-.ing-bg-light { background-color: var(--ing-light) !important; }
-.ing-bg-white { background-color: var(--ing-white) !important; }
+.aura-bg-primary { background-color: var(--aura-primary) !important; }
+.aura-bg-secondary { background-color: var(--aura-secondary) !important; }
+.aura-bg-accent { background-color: var(--aura-accent) !important; }
+.aura-bg-neutral { background-color: var(--aura-neutral) !important; }
+.aura-bg-light { background-color: var(--aura-light) !important; }
+.aura-bg-white { background-color: var(--aura-white) !important; }
 
 /* Text Colors */
-.ing-text-primary { color: var(--ing-primary) !important; }
-.ing-text-secondary { color: var(--ing-secondary) !important; }
-.ing-text-accent { color: var(--ing-accent) !important; }
-.ing-text-neutral { color: var(--ing-neutral) !important; }
-.ing-text-white { color: var(--ing-white) !important; }
+.aura-text-primary { color: var(--aura-primary) !important; }
+.aura-text-secondary { color: var(--aura-secondary) !important; }
+.aura-text-accent { color: var(--aura-accent) !important; }
+.aura-text-neutral { color: var(--aura-neutral) !important; }
+.aura-text-white { color: var(--aura-white) !important; }
 
 /* Border Colors */
-.ing-border-primary { border-color: var(--ing-primary) !important; }
-.ing-border-secondary { border-color: var(--ing-secondary) !important; }
-.ing-border-accent { border-color: var(--ing-accent) !important; }
+.aura-border-primary { border-color: var(--aura-primary) !important; }
+.aura-border-secondary { border-color: var(--aura-secondary) !important; }
+.aura-border-accent { border-color: var(--aura-accent) !important; }
 
 /* Gradient Backgrounds */
-.ing-gradient-primary { 
-    background: var(--ing-gradient-primary) !important; 
-    color: var(--ing-white);
+.aura-gradient-primary {
+    background: var(--aura-gradient-primary) !important;
+    color: var(--aura-white);
 }
-.ing-gradient-secondary { 
-    background: var(--ing-gradient-secondary) !important; 
-    color: var(--ing-white);
+.aura-gradient-secondary {
+    background: var(--aura-gradient-secondary) !important;
+    color: var(--aura-white);
 }
 
 /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
 
 /* Ensure proper contrast for text on colored backgrounds */
-.ing-bg-primary,
-.ing-bg-secondary,
-.ing-bg-accent,
-.ing-bg-neutral {
-    color: var(--ing-white);
+.aura-bg-primary,
+.aura-bg-secondary,
+.aura-bg-accent,
+.aura-bg-neutral {
+    color: var(--aura-white);
 }
 
-.ing-bg-light,
-.ing-bg-white {
-    color: var(--ing-neutral);
+.aura-bg-light,
+.aura-bg-white {
+    color: var(--aura-neutral);
 }
 
 /* Focus states for accessibility */
-.ing-focus-ring:focus {
-    outline: 2px solid var(--ing-primary);
+.aura-focus-ring:focus {
+    outline: 2px solid var(--aura-primary);
     outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     :root {
-        --ing-primary: #FF4500;
-        --ing-secondary: #1E5A8A;
-        --ing-neutral: #000000;
+        --aura-primary: #5BA8C7;
+        --aura-secondary: #8A6BB5;
+        --aura-neutral: #2C3E50;
     }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
     :root {
-        --ing-transition-fast: none;
-        --ing-transition-medium: none;
-        --ing-transition-slow: none;
-        --ing-transition-bounce: none;
+        --aura-transition-fast: none;
+        --aura-transition-medium: none;
+        --aura-transition-slow: none;
+        --aura-transition-bounce: none;
     }
 }

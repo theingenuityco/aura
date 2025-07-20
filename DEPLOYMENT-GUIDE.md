@@ -1,95 +1,86 @@
-# 🚀 Super.so Deployment Guide - Quick Reference
+# 🚀 Aura Deployment Guide
 
-> **5-minute setup guide for The Ingenuity Co enhancement system**
+> **Simple 3-step deployment guide for Aura's core features**
 
-## ⚡ Quick Deployment Checklist
+## What You're Deploying
 
-### Phase 1: CDN Setup (2 minutes)
+**3 Core Features:**
+1. **Brand Styling** - CSS files with brand colors
+2. **Interactive Elements** - JavaScript for hover effects  
+3. **Hello World Banner** - Basic demonstration
 
-- [ ] **Upload files to CDN** maintaining exact folder structure:
-  ```
-  your-cdn.com/v1/css/enhancement.css
-  your-cdn.com/v1/css/core/brand.css
-  your-cdn.com/v1/js/enhancement.js
-  your-cdn.com/v1/js/core/ingenuity.js
-  ```
+---
 
-- [ ] **Test CDN accessibility**:
-  ```bash
-  curl -I https://your-cdn.com/v1/css/enhancement.css
-  curl -I https://your-cdn.com/v1/js/enhancement.js
-  ```
+## Step 1: Upload Files
 
-- [ ] **Verify files return HTTP 200 OK**
+Upload these 4 files to your server/CDN while keeping the folder structure:
 
-### Phase 2: Super.so Integration (2 minutes)
+```
+your-domain.com/v1/css/enhancement.css
+your-domain.com/v1/css/core/brand.css
+your-domain.com/v1/js/enhancement.js
+your-domain.com/v1/js/core/ingenuity.js
+```
 
-**Step 1 - Head Tag Injection:**
+**Test the files work:** Visit `https://your-domain.com/v1/css/enhancement.css` in your browser - you should see CSS code.
+
+---
+
+## Step 2: Add Code to Your Site
+
+### Add to `<head>` section:
 ```html
-<link rel="stylesheet" href="https://your-cdn.com/v1/css/enhancement.css">
+<link rel="stylesheet" href="https://your-domain.com/v1/css/enhancement.css">
 <script>
-window.IngenuityConfig = {
-  cdnBase: 'https://your-cdn.com/v1',
-  debug: false
+window.AuraConfig = {
+  cdnBase: 'https://your-domain.com/v1'
 };
 </script>
 ```
 
-**Step 2 - Stylesheet CSS Injection:**
-```css
-:root {
-  --ing-primary: #FF6B35;
-  --ing-secondary: #2E86AB;
-  --ing-accent: #F7931E;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-}
-```
-
-**Step 3 - End of Body Injection:**
+### Add before `</body>`:
 ```html
-<script src="https://your-cdn.com/v1/js/core/ingenuity.js"></script>
-<script src="https://your-cdn.com/v1/js/enhancement.js"></script>
+<script src="https://your-domain.com/v1/js/core/ingenuity.js"></script>
+<script src="https://your-domain.com/v1/js/enhancement.js"></script>
 ```
 
-### Phase 3: Verification (1 minute)
+---
 
-- [ ] **Visit website** - should see visual improvements immediately
-- [ ] **Check browser console** - look for: `🚀 INGENUITY ENH Enhancement system initialized successfully`
-- [ ] **Test mobile** - verify responsive design works
-- [ ] **Verify "Hello World" banner** appears (if enabled)
+## Step 3: Verify It Works
+
+Visit your website and check:
+
+- [ ] **Brand colors** appear on buttons and headers
+- [ ] **Hover effects** work when you mouse over elements
+- [ ] **"Hello World" banner** shows up (if enabled)
+- [ ] **Browser console** shows: `🚀 INGENUITY ENH Enhancement system initialized successfully`
 
 ---
 
-## 🆘 Emergency Rollback
+## Platform Integration Example (Super.so)
 
-If something goes wrong, immediately clear all 3 Super.so injection areas and save.
-
----
-
-## 🔧 Common CDN URLs
-
-**Replace `your-cdn.com` with your actual CDN:**
-
-| Provider | URL Format |
-|----------|------------|
-| Cloudflare | `https://yourdomain.com/cdn/v1/` |
-| AWS CloudFront | `https://d123456789.cloudfront.net/v1/` |
-| jsDelivr (GitHub) | `https://cdn.jsdelivr.net/gh/username/repo@main/v1/` |
-| Custom | `https://cdn.yoursite.com/v1/` |
+**Super.so users:** Add the code in these sections:
+- Head injection: Add the `<head>` code
+- CSS injection: Leave blank 
+- Body injection: Add the `</body>` code
 
 ---
 
-## ✅ Success Indicators
+## Emergency Rollback
 
-- ✅ Brand colors visible on buttons and headers
-- ✅ Improved typography throughout site
-- ✅ Console shows branded log messages
-- ✅ No JavaScript errors in console
-- ✅ Page loads normally without delays
+If something breaks:
+1. Remove the code you added in Step 2
+2. Save/publish your changes
+3. Your site returns to normal
 
 ---
 
-*Need help? Check the full [README.md](README.md) or contact support@theingenuity.co*
+---
+
+## Need Help?
+
+- Files not loading? Check your file URLs in a browser
+- Nothing happening? Check browser console for error messages
+- Still stuck? Remove all code and try again
+
+*Replace `your-domain.com` with your actual domain/CDN URL*
