@@ -1,11 +1,17 @@
-/* 
- * The Ingenuity Co - Main CSS Enhancement File
- * CDN Enhancement System v1
- * 
- * This is the primary CSS file for The Ingenuity Co website enhancements.
- * It imports brand styles and provides evident visual improvements for super.so integration.
- * 
+/*
+ * The Ingenuity Co - Production CSS Enhancement File
+ * CDN Enhancement System v1.0.0 - Production Ready
+ *
+ * This is the production-ready CSS file for The Ingenuity Co website enhancements.
+ * It imports brand styles and provides graceful visual improvements for super.so integration.
+ *
+ * PRODUCTION FEATURES:
+ * - Opt-in styling using .ingenuity-enhanced and .ing-* classes
+ * - Reduced !important declarations for better integration
+ * - Graceful degradation and accessibility support
+ *
  * USAGE: Import this file in Super.so's stylesheet CSS section or head tag injection.
+ *        Add .ingenuity-enhanced class to containers you want to enhance.
  */
 
 /* ===== IMPORT CORE BRAND STYLES ===== */
@@ -13,346 +19,234 @@
 
 /* ===== GLOBAL BASE ENHANCEMENTS ===== */
 
-/* Enhanced body styling with brand typography */
+/* Enhanced body styling with brand typography - less aggressive */
 body {
-    font-family: var(--ing-font-family) !important;
-    line-height: 1.6 !important;
-    color: var(--ing-neutral) !important;
-    background-color: var(--ing-light) !important;
-    -webkit-font-smoothing: antialiased !important;
-    -moz-osx-font-smoothing: grayscale !important;
-    transition: var(--ing-transition-medium) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Remove default margins and improve spacing */
+/* Improved box-sizing without forcing override */
 * {
-    box-sizing: border-box !important;
+    box-sizing: border-box;
 }
 
 /* ===== HEADER & NAVIGATION ENHANCEMENTS ===== */
 
-/* Target common header selectors used by super.so and notion */
-header,
-.header,
-.site-header,
-.navbar,
-.nav-bar,
-.navigation,
-[class*="header"],
-[class*="nav"] {
-    background: var(--ing-gradient-primary) !important;
-    color: var(--ing-white) !important;
-    box-shadow: var(--ing-shadow-bold) !important;
-    border-radius: 0 0 var(--ing-radius-lg) var(--ing-radius-lg) !important;
-    padding: var(--ing-spacing-md) var(--ing-spacing-lg) !important;
-    margin-bottom: var(--ing-spacing-lg) !important;
-    transition: var(--ing-transition-medium) !important;
+/* Target common header selectors - production-friendly styling */
+.ingenuity-enhanced header,
+.ingenuity-enhanced .header,
+.ingenuity-enhanced .site-header,
+.ingenuity-enhanced .navbar {
+    box-shadow: var(--ing-shadow-subtle);
+    transition: var(--ing-transition-medium);
 }
 
-/* Navigation links styling */
-nav a,
-.nav-link,
-.navbar a,
-.header a,
-[class*="nav"] a {
-    color: var(--ing-white) !important;
-    text-decoration: none !important;
-    font-weight: var(--ing-font-weight-medium) !important;
-    padding: var(--ing-spacing-sm) var(--ing-spacing-md) !important;
-    border-radius: var(--ing-radius-md) !important;
-    transition: var(--ing-transition-fast) !important;
-    position: relative !important;
+/* Navigation links styling - less aggressive */
+.ingenuity-enhanced nav a,
+.ingenuity-enhanced .nav-link {
+    transition: var(--ing-transition-fast);
+    border-radius: var(--ing-radius-md);
 }
 
-/* Navigation link hover effects */
-nav a:hover,
-.nav-link:hover,
-.navbar a:hover,
-.header a:hover,
-[class*="nav"] a:hover {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    transform: translateY(-2px) !important;
-    box-shadow: var(--ing-shadow-subtle) !important;
-}
-
-/* Brand/logo styling in header */
-.logo,
-.brand,
-.site-title,
-[class*="logo"],
-[class*="brand"] {
-    font-size: 1.5rem !important;
-    font-weight: var(--ing-font-weight-bold) !important;
-    color: var(--ing-white) !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+.ingenuity-enhanced nav a:hover,
+.ingenuity-enhanced .nav-link:hover {
+    transform: translateY(-1px);
 }
 
 /* ===== BUTTON ENHANCEMENTS ===== */
 
-/* Enhanced button styling with brand colors */
-button,
-.button,
-.btn,
-input[type="submit"],
-input[type="button"],
-a[class*="button"],
-a[class*="btn"] {
-    background: var(--ing-gradient-primary) !important;
-    color: var(--ing-white) !important;
-    border: none !important;
-    padding: var(--ing-spacing-sm) var(--ing-spacing-lg) !important;
-    border-radius: var(--ing-radius-pill) !important;
-    font-size: 1rem !important;
-    font-weight: var(--ing-font-weight-semibold) !important;
-    font-family: var(--ing-font-family) !important;
-    cursor: pointer !important;
-    transition: var(--ing-transition-bounce) !important;
-    box-shadow: var(--ing-shadow-primary) !important;
-    text-decoration: none !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 44px !important; /* Accessibility: minimum touch target */
-    position: relative !important;
-    overflow: hidden !important;
+/* Enhanced button styling - production-friendly */
+.ingenuity-button,
+.ingenuity-enhanced .button,
+.ingenuity-enhanced .btn {
+    background: var(--ing-gradient-primary);
+    color: var(--ing-white);
+    border-radius: var(--ing-radius-pill);
+    transition: var(--ing-transition-bounce);
+    box-shadow: var(--ing-shadow-primary);
+    text-decoration: none;
+    min-height: 44px; /* Accessibility: minimum touch target */
+    cursor: pointer;
 }
 
-/* Button hover effects */
-button:hover,
-.button:hover,
-.btn:hover,
-input[type="submit"]:hover,
-input[type="button"]:hover,
-a[class*="button"]:hover,
-a[class*="btn"]:hover {
-    transform: translateY(-3px) scale(1.02) !important;
-    box-shadow: var(--ing-shadow-hover) !important;
-    background: linear-gradient(135deg, var(--ing-primary-hover), var(--ing-accent-hover)) !important;
+.ingenuity-button:hover,
+.ingenuity-enhanced .button:hover,
+.ingenuity-enhanced .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ing-shadow-hover);
 }
 
-/* Button active state */
-button:active,
-.button:active,
-.btn:active {
-    transform: translateY(-1px) scale(0.98) !important;
-}
-
-/* Secondary button variant */
-.btn-secondary,
-.button-secondary {
-    background: var(--ing-secondary) !important;
-    box-shadow: var(--ing-shadow-secondary) !important;
-}
-
-.btn-secondary:hover,
-.button-secondary:hover {
-    background: var(--ing-secondary-hover) !important;
-    box-shadow: 0 6px 20px rgba(46, 134, 171, 0.4) !important;
+.ingenuity-button:active,
+.ingenuity-enhanced .button:active,
+.ingenuity-enhanced .btn:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 /* ===== TYPOGRAPHY ENHANCEMENTS ===== */
 
-/* Enhanced headings with brand colors */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--ing-font-family) !important;
-    font-weight: var(--ing-font-weight-bold) !important;
-    color: var(--ing-neutral) !important;
-    line-height: 1.3 !important;
-    margin-bottom: var(--ing-spacing-md) !important;
+/* Enhanced typography - graceful integration */
+.ingenuity-enhanced h1,
+.ingenuity-enhanced h2,
+.ingenuity-enhanced h3 {
+    line-height: 1.3;
 }
 
-/* Primary heading with gradient text */
-h1 {
-    background: var(--ing-gradient-primary) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    background-clip: text !important;
-    font-size: 2.5rem !important;
-    margin-bottom: var(--ing-spacing-lg) !important;
+.ingenuity-enhanced h1.ing-gradient-text {
+    background: var(--ing-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/* Secondary headings with brand colors */
-h2 {
-    color: var(--ing-primary) !important;
-    font-size: 2rem !important;
-    position: relative !important;
+.ingenuity-enhanced h2.ing-branded {
+    color: var(--ing-primary);
+    position: relative;
 }
 
-h2::after {
-    content: '' !important;
-    position: absolute !important;
-    bottom: -4px !important;
-    left: 0 !important;
-    width: 50px !important;
-    height: 3px !important;
-    background: var(--ing-gradient-primary) !important;
-    border-radius: var(--ing-radius-sm) !important;
+.ingenuity-enhanced h2.ing-branded::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--ing-gradient-primary);
+    border-radius: var(--ing-radius-sm);
 }
 
-h3 {
-    color: var(--ing-secondary) !important;
-    font-size: 1.5rem !important;
+/* Enhanced links - only with specific classes */
+.ingenuity-enhanced a.ing-link {
+    color: var(--ing-primary);
+    transition: var(--ing-transition-fast);
 }
 
-/* Enhanced paragraph text */
-p {
-    font-family: var(--ing-font-family) !important;
-    line-height: 1.7 !important;
-    color: var(--ing-neutral) !important;
-    margin-bottom: var(--ing-spacing-md) !important;
-}
-
-/* Enhanced links */
-a {
-    color: var(--ing-primary) !important;
-    text-decoration: none !important;
-    transition: var(--ing-transition-fast) !important;
-    position: relative !important;
-}
-
-a:hover {
-    color: var(--ing-primary-hover) !important;
-    text-decoration: underline !important;
+.ingenuity-enhanced a.ing-link:hover {
+    color: var(--ing-primary-hover);
 }
 
 /* Accent text styling */
 .accent,
 .highlight,
-[class*="accent"] {
-    color: var(--ing-accent) !important;
-    font-weight: var(--ing-font-weight-semibold) !important;
+.ing-accent {
+    color: var(--ing-accent);
+    font-weight: var(--ing-font-weight-semibold);
 }
 
 /* ===== CARD & CONTENT ENHANCEMENTS ===== */
 
 /* Enhanced cards and content blocks */
-.card,
-.content-block,
-.section,
-[class*="card"],
-[class*="block"] {
-    background: var(--ing-white) !important;
-    border-radius: var(--ing-radius-lg) !important;
-    box-shadow: var(--ing-shadow-subtle) !important;
-    padding: var(--ing-spacing-xl) !important;
-    margin-bottom: var(--ing-spacing-lg) !important;
-    transition: var(--ing-transition-medium) !important;
-    border: 1px solid rgba(255, 107, 53, 0.1) !important;
+.ingenuity-card,
+.ingenuity-enhanced .card {
+    background: var(--ing-white);
+    border-radius: var(--ing-radius-lg);
+    box-shadow: var(--ing-shadow-subtle);
+    transition: var(--ing-transition-medium);
+    border: 1px solid rgba(255, 107, 53, 0.1);
 }
 
-.card:hover,
-.content-block:hover,
-[class*="card"]:hover {
-    transform: translateY(-5px) !important;
-    box-shadow: var(--ing-shadow-bold) !important;
-    border-color: var(--ing-primary) !important;
+.ingenuity-card:hover,
+.ingenuity-enhanced .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--ing-shadow-bold);
+    border-color: var(--ing-primary);
 }
 
 /* ===== FORM ENHANCEMENTS ===== */
 
-/* Enhanced form inputs */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-textarea,
-select {
-    font-family: var(--ing-font-family) !important;
-    padding: var(--ing-spacing-sm) var(--ing-spacing-md) !important;
-    border: 2px solid #e1e5e9 !important;
-    border-radius: var(--ing-radius-md) !important;
-    transition: var(--ing-transition-fast) !important;
-    font-size: 1rem !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
+/* Enhanced form inputs - less aggressive */
+.ingenuity-enhanced input[type="text"],
+.ingenuity-enhanced input[type="email"],
+.ingenuity-enhanced input[type="password"],
+.ingenuity-enhanced textarea {
+    border-radius: var(--ing-radius-md);
+    transition: var(--ing-transition-fast);
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--ing-primary) !important;
-    box-shadow: 0 0 0 3px var(--ing-primary-light) !important;
-    outline: none !important;
+.ingenuity-enhanced input[type="text"]:focus,
+.ingenuity-enhanced input[type="email"]:focus,
+.ingenuity-enhanced input[type="password"]:focus,
+.ingenuity-enhanced textarea:focus {
+    border-color: var(--ing-primary);
+    box-shadow: 0 0 0 2px var(--ing-primary-light);
+    outline: none;
 }
 
 /* ===== ACCENT COLOR APPLICATIONS ===== */
 
-/* Accent borders and highlights */
-blockquote {
-    border-left: 4px solid var(--ing-accent) !important;
-    background: var(--ing-accent-light) !important;
-    padding: var(--ing-spacing-md) var(--ing-spacing-lg) !important;
-    margin: var(--ing-spacing-lg) 0 !important;
-    border-radius: var(--ing-radius-md) !important;
+/* Accent borders and highlights - opt-in styling */
+.ingenuity-enhanced blockquote,
+blockquote.ing-styled {
+    border-left: 4px solid var(--ing-accent);
+    background: var(--ing-accent-light);
+    padding: var(--ing-spacing-md) var(--ing-spacing-lg);
+    margin: var(--ing-spacing-lg) 0;
+    border-radius: var(--ing-radius-md);
 }
 
-/* Code blocks with accent styling */
-code,
-pre {
-    background: var(--ing-neutral) !important;
-    color: var(--ing-white) !important;
-    padding: var(--ing-spacing-xs) var(--ing-spacing-sm) !important;
-    border-radius: var(--ing-radius-sm) !important;
-    font-family: 'Monaco', 'Consolas', monospace !important;
+/* Code blocks with accent styling - opt-in */
+.ingenuity-enhanced code,
+.ingenuity-enhanced pre {
+    background: var(--ing-neutral);
+    color: var(--ing-white);
+    border-radius: var(--ing-radius-sm);
 }
 
-pre {
-    padding: var(--ing-spacing-md) !important;
-    overflow-x: auto !important;
-    border-left: 4px solid var(--ing-accent) !important;
+.ingenuity-enhanced pre {
+    padding: var(--ing-spacing-md);
+    overflow-x: auto;
+    border-left: 4px solid var(--ing-accent);
 }
 
-/* Tables with brand styling */
-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    margin: var(--ing-spacing-lg) 0 !important;
-    background: var(--ing-white) !important;
-    border-radius: var(--ing-radius-md) !important;
-    overflow: hidden !important;
-    box-shadow: var(--ing-shadow-subtle) !important;
+/* Tables with brand styling - opt-in */
+.ingenuity-enhanced table,
+table.ing-styled {
+    background: var(--ing-white);
+    border-radius: var(--ing-radius-md);
+    overflow: hidden;
+    box-shadow: var(--ing-shadow-subtle);
 }
 
-th {
-    background: var(--ing-gradient-primary) !important;
-    color: var(--ing-white) !important;
-    padding: var(--ing-spacing-md) !important;
-    font-weight: var(--ing-font-weight-semibold) !important;
+.ingenuity-enhanced th,
+table.ing-styled th {
+    background: var(--ing-gradient-primary);
+    color: var(--ing-white);
+    padding: var(--ing-spacing-md);
+    font-weight: var(--ing-font-weight-semibold);
 }
 
-td {
-    padding: var(--ing-spacing-md) !important;
-    border-bottom: 1px solid #f1f3f5 !important;
+.ingenuity-enhanced td,
+table.ing-styled td {
+    padding: var(--ing-spacing-md);
+    border-bottom: 1px solid #f1f3f5;
 }
 
-tr:hover {
-    background: var(--ing-primary-light) !important;
+.ingenuity-enhanced tr:hover,
+table.ing-styled tr:hover {
+    background: var(--ing-primary-light);
 }
 
 /* ===== INTERACTIVE ELEMENTS ===== */
 
-/* Enhanced hover effects for interactive elements */
-[role="button"],
+/* Enhanced hover effects for interactive elements - opt-in */
+.ingenuity-enhanced [role="button"],
 .clickable,
 .interactive {
-    cursor: pointer !important;
-    transition: var(--ing-transition-fast) !important;
+    cursor: pointer;
+    transition: var(--ing-transition-fast);
 }
 
-[role="button"]:hover,
+.ingenuity-enhanced [role="button"]:hover,
 .clickable:hover,
 .interactive:hover {
-    transform: translateY(-2px) !important;
+    transform: translateY(-1px);
 }
 
 /* Loading states */
-.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%) !important;
-    background-size: 200% 100% !important;
-    animation: loading-shimmer 2s infinite !important;
+.loading,
+.ing-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 2s infinite;
 }
 
 @keyframes loading-shimmer {
@@ -362,57 +256,55 @@ tr:hover {
 
 /* ===== RESPONSIVE ENHANCEMENTS ===== */
 
-/* Mobile-first responsive adjustments */
+/* Mobile-first responsive adjustments - less aggressive */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem !important;
+    .ingenuity-enhanced h1 {
+        font-size: 2rem;
     }
     
-    h2 {
-        font-size: 1.75rem !important;
+    .ingenuity-enhanced h2 {
+        font-size: 1.75rem;
     }
     
-    button,
-    .button,
-    .btn {
-        padding: var(--ing-spacing-md) var(--ing-spacing-lg) !important;
-        font-size: 1.1rem !important;
-        min-height: 48px !important; /* Larger touch target on mobile */
+    .ingenuity-button,
+    .ingenuity-enhanced .button,
+    .ingenuity-enhanced .btn {
+        min-height: 48px; /* Larger touch target on mobile */
     }
     
-    .card,
-    .content-block {
-        padding: var(--ing-spacing-lg) !important;
+    .ingenuity-card,
+    .ingenuity-enhanced .card {
+        padding: var(--ing-spacing-lg);
     }
 }
 
 /* ===== UTILITY CLASSES FOR INSTANT BRANDING ===== */
 
-/* Quick brand application classes */
+/* Quick brand application classes - production-ready */
 .ing-branded {
-    border-left: 4px solid var(--ing-primary) !important;
-    padding-left: var(--ing-spacing-md) !important;
+    border-left: 4px solid var(--ing-primary);
+    padding-left: var(--ing-spacing-md);
 }
 
 .ing-highlight {
-    background: var(--ing-primary-light) !important;
-    padding: var(--ing-spacing-sm) var(--ing-spacing-md) !important;
-    border-radius: var(--ing-radius-md) !important;
-    border: 1px solid var(--ing-primary) !important;
+    background: var(--ing-primary-light);
+    padding: var(--ing-spacing-sm) var(--ing-spacing-md);
+    border-radius: var(--ing-radius-md);
+    border: 1px solid var(--ing-primary);
 }
 
 .ing-callout {
-    background: var(--ing-gradient-primary) !important;
-    color: var(--ing-white) !important;
-    padding: var(--ing-spacing-lg) !important;
-    border-radius: var(--ing-radius-lg) !important;
-    box-shadow: var(--ing-shadow-primary) !important;
-    text-align: center !important;
+    background: var(--ing-gradient-primary);
+    color: var(--ing-white);
+    padding: var(--ing-spacing-lg);
+    border-radius: var(--ing-radius-lg);
+    box-shadow: var(--ing-shadow-primary);
+    text-align: center;
 }
 
 /* ===== ANIMATION ENHANCEMENTS ===== */
 
-/* Subtle entrance animations */
+/* Sophisticated content reveal animations */
 @keyframes ing-fade-in {
     from {
         opacity: 0;
@@ -424,11 +316,130 @@ tr:hover {
     }
 }
 
-/* Apply entrance animation to main content */
-main,
-.main-content,
-[role="main"] {
-    animation: ing-fade-in 0.6s ease-out !important;
+@keyframes ing-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes ing-slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ing-slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes ing-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes ing-rotate-in {
+    from {
+        opacity: 0;
+        transform: rotate(-5deg) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* Content reveal animation classes - opt-in usage */
+.ing-reveal {
+    animation: ing-slide-up 0.6s var(--ing-transition-bounce);
+    animation-fill-mode: both;
+}
+
+.ing-reveal-fade {
+    animation: ing-fade-in 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.ing-reveal-left {
+    animation: ing-slide-in-left 0.6s var(--ing-transition-bounce);
+    animation-fill-mode: both;
+}
+
+.ing-reveal-right {
+    animation: ing-slide-in-right 0.6s var(--ing-transition-bounce);
+    animation-fill-mode: both;
+}
+
+.ing-reveal-scale {
+    animation: ing-scale-in 0.5s var(--ing-transition-bounce);
+    animation-fill-mode: both;
+}
+
+.ing-reveal-rotate {
+    animation: ing-rotate-in 0.7s var(--ing-transition-bounce);
+    animation-fill-mode: both;
+}
+
+/* Staggered animations for child elements */
+.ing-stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+.ing-stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+.ing-stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+.ing-stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+.ing-stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+.ing-stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+.ing-stagger-children > *:nth-child(7) { animation-delay: 0.7s; }
+.ing-stagger-children > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Alternative stagger timing - shorter delays */
+.ing-stagger-fast > *:nth-child(1) { animation-delay: 0.05s; }
+.ing-stagger-fast > *:nth-child(2) { animation-delay: 0.1s; }
+.ing-stagger-fast > *:nth-child(3) { animation-delay: 0.15s; }
+.ing-stagger-fast > *:nth-child(4) { animation-delay: 0.2s; }
+.ing-stagger-fast > *:nth-child(5) { animation-delay: 0.25s; }
+.ing-stagger-fast > *:nth-child(6) { animation-delay: 0.3s; }
+.ing-stagger-fast > *:nth-child(7) { animation-delay: 0.35s; }
+.ing-stagger-fast > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* Animation timing variations */
+.ing-anim-slow {
+    animation-duration: 0.8s !important;
+}
+
+.ing-anim-fast {
+    animation-duration: 0.4s !important;
+}
+
+.ing-anim-delay-1 { animation-delay: 0.2s; }
+.ing-anim-delay-2 { animation-delay: 0.4s; }
+.ing-anim-delay-3 { animation-delay: 0.6s; }
+
+/* Apply entrance animation to main content - enhanced */
+main.ingenuity-enhanced,
+.main-content.ingenuity-enhanced,
+[role="main"].ingenuity-enhanced {
+    animation: ing-fade-in 0.6s ease-out;
 }
 
 /* Pulse animation for call-to-action elements */
@@ -438,48 +449,86 @@ main,
 }
 
 .ing-pulse {
-    animation: ing-pulse 2s infinite !important;
+    animation: ing-pulse 2s infinite;
+}
+
+/* Intersection Observer ready states */
+.ing-reveal-ready {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s var(--ing-transition-bounce),
+                transform 0.6s var(--ing-transition-bounce);
+}
+
+.ing-reveal-ready.ing-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .ing-reveal,
+    .ing-reveal-fade,
+    .ing-reveal-left,
+    .ing-reveal-right,
+    .ing-reveal-scale,
+    .ing-reveal-rotate,
+    .ing-pulse,
+    main.ingenuity-enhanced,
+    .main-content.ingenuity-enhanced,
+    [role="main"].ingenuity-enhanced {
+        animation: none;
+    }
+    
+    .ing-reveal-ready {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 /* ===== DARK MODE SUPPORT ===== */
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #1a1a1a !important;
-        color: #e0e0e0 !important;
+    .ingenuity-enhanced {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
     }
     
-    .card,
-    .content-block {
-        background: #2a2a2a !important;
-        color: #e0e0e0 !important;
+    .ingenuity-card,
+    .ingenuity-enhanced .card {
+        background: #2a2a2a;
+        color: #e0e0e0;
     }
     
-    h1, h2, h3, h4, h5, h6 {
-        color: var(--ing-white) !important;
+    .ingenuity-enhanced h1,
+    .ingenuity-enhanced h2,
+    .ingenuity-enhanced h3 {
+        color: var(--ing-white);
     }
 }
 
 /* ===== PRINT STYLES ===== */
 
 @media print {
-    * {
-        background: none !important;
-        color: black !important;
-        box-shadow: none !important;
+    .ingenuity-enhanced * {
+        background: none;
+        color: black;
+        box-shadow: none;
     }
     
     .ing-gradient-primary,
     .ing-gradient-secondary {
-        background: none !important;
-        color: black !important;
+        background: none;
+        color: black;
     }
 }
 
-/* 
+/*
  * END OF ENHANCEMENT FILE
- * 
- * This CSS file provides comprehensive visual enhancements for The Ingenuity Co
- * website when used with super.so. All styles use !important to ensure they
- * override existing styles, and are designed to be evident and immediately visible.
+ *
+ * This CSS file provides production-ready visual enhancements for The Ingenuity Co
+ * website when used with super.so. Styles are designed to integrate gracefully with
+ * existing designs using opt-in classes (.ingenuity-enhanced, .ing-*) rather than
+ * aggressive overrides. Perfect for professional websites requiring subtle branding.
  */

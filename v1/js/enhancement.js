@@ -1,22 +1,22 @@
 /*!
- * The Ingenuity Co - Main Enhancement Entry Point
- * CDN Enhancement System v1.0.0
- * 
- * This is the main JavaScript file for The Ingenuity Co website enhancements.
- * It serves as the primary entry point for Super.so integration and imports
- * the core functionality from ingenuity.js.
- * 
- * Features:
- * - Imports and initializes the core Ingenuity library
- * - Provides branded Hello World demonstration
- * - Handles Super.so integration points
- * - Manages configuration and feature flags
- * - Ensures non-intrusive operation
- * - Comprehensive error handling
- * 
- * Integration: Load this file via Super.so's "End of Body" injection point
- * Dependencies: Requires /v1/js/core/ingenuity.js
- * Author: The Ingenuity Co Development Team
+ * Aura Enhancement - Mystical Energy Extension System
+ * CDN Enhancement System v1.0.0 - Production Ready
+ *
+ * This is the production-ready mystical energy extension system for theingenuity.co.
+ * Aura Enhancement extends the digital energy field across platforms with invisible,
+ * sophisticated enhancement capabilities.
+ *
+ * MYSTICAL FEATURES:
+ * - Imports and initializes the AuraCore mystical library
+ * - Extends digital aura across theingenuity.co, Super.so, and GitHub Pages
+ * - Mystical energy field enhancement with graceful degradation
+ * - Production-optimized Aura configuration and mystical feature flags
+ * - Invisible operation with sophisticated energy field extensions
+ * - Comprehensive mystical error handling and energy fallbacks
+ *
+ * Integration: Primary source theingenuity.co with extension to Super.so and GitHub Pages
+ * Dependencies: Requires /v1/js/core/ingenuity.js (AuraCore system)
+ * Author: The Ingenuity Co Development Team - Aura Enhancement Division
  * License: Proprietary
  */
 
@@ -27,27 +27,36 @@
     // CONFIGURATION & CONSTANTS
     // =================================================================
 
-    const ENHANCEMENT_CONFIG = {
-        name: 'The Ingenuity Co Enhancement System',
+    const AURA_ENHANCEMENT_CONFIG = {
+        name: 'Aura Enhancement - Mystical Energy Extension System',
         version: '1.0.0',
-        cdnBase: 'https://cdn.theingenuity.co/v1', // Update with actual CDN URL
+        cdnBase: 'https://cdn.theingenuity.co/v1', // Aura Enhancement CDN Base
+        primarySource: 'https://theingenuity.co', // Primary mystical energy source
         features: {
-            helloWorld: true,
-            brandedLogging: true,
-            interactiveBanner: true,
-            errorReporting: true,
-            statusReporting: true
+            mysticalEnergy: true,
+            auraLogging: false,
+            energyField: false,
+            mysticalReporting: true,
+            auraStatusReporting: false,
+            digitalAuraExtension: true
         },
         initialization: {
             autoStart: true,
-            delayMs: 250,
+            delayMs: 100,
             maxRetries: 3,
-            retryDelayMs: 1000
+            retryDelayMs: 1000,
+            mysticalInitialization: true
         },
         compatibility: {
             checkConflicts: true,
             gracefulDegradation: true,
-            respectUserPreferences: true
+            respectUserPreferences: true,
+            maintainLegacySupport: true
+        },
+        platforms: {
+            theingenuity: { primary: true, energyLevel: 'full' },
+            superso: { extension: true, energyLevel: 'enhanced' },
+            github: { extension: true, energyLevel: 'enhanced' }
         }
     };
 
@@ -56,73 +65,66 @@
     // =================================================================
 
     /**
-     * Enhanced logging specifically for the enhancement system
+     * Mystical logging specifically for the Aura Enhancement system
      * @param {string} level - Log level
      * @param {string} message - Message to log
      * @param {*} data - Optional data
      */
-    function enhancementLog(level, message, data) {
-        const styles = {
-            brand: `
-                background: linear-gradient(135deg, #FF6B35, #F7931E);
-                color: white;
-                padding: 2px 8px;
-                border-radius: 4px;
-                font-weight: 600;
-                font-size: 11px;
-            `,
-            system: `
-                background: #2E86AB;
-                color: white;
-                padding: 2px 6px;
-                border-radius: 3px;
-                font-size: 10px;
-                margin-left: 4px;
-            `,
-            message: `color: #4A4A4A; font-weight: 500;`
-        };
-
-        const timestamp = new Date().toLocaleTimeString();
-        const enhancementLabel = '🚀 INGENUITY';
-        const systemLabel = 'ENH';
+    function auraEnhancementLog(level, message, data) {
+        // Production-ready mystical logging - only in debug mode or for errors
+        if (!AURA_ENHANCEMENT_CONFIG.features.auraLogging && level !== 'error') {
+            return;
+        }
+        
+        const prefix = '🌟 AuraEnhancement';
         
         if (data !== undefined) {
-            console[level](`%c${enhancementLabel}%c${systemLabel}%c ${message} [${timestamp}]`, 
-                          styles.brand, styles.system, styles.message, data);
+            console[level](`[${prefix}] ${message}`, data);
         } else {
-            console[level](`%c${enhancementLabel}%c${systemLabel}%c ${message} [${timestamp}]`, 
-                          styles.brand, styles.system, styles.message);
+            console[level](`[${prefix}] ${message}`);
         }
     }
 
-    /**
-     * Checks if the core library is available
-     * @returns {boolean} True if core library is loaded
-     */
-    function isCoreLibraryAvailable() {
-        return typeof window.IngenuityCore !== 'undefined' && 
-               window.IngenuityCore && 
-               typeof window.IngenuityCore.init === 'function';
+    // Legacy logging function for backward compatibility
+    function enhancementLog(level, message, data) {
+        return auraEnhancementLog(level, message, data);
     }
 
     /**
-     * Dynamically loads the core library if not available
-     * @returns {Promise} Promise that resolves when library is loaded
+     * Checks if the Aura core library is available
+     * @returns {boolean} True if Aura core library is loaded
+     */
+    function isCoreLibraryAvailable() {
+        return (typeof window.AuraCore !== 'undefined' &&
+               window.AuraCore &&
+               typeof window.AuraCore.init === 'function') ||
+               (typeof window.IngenuityCore !== 'undefined' &&
+               window.IngenuityCore &&
+               typeof window.IngenuityCore.init === 'function');
+    }
+
+    /**
+     * Dynamically loads the Aura core library if not available
+     * @returns {Promise} Promise that resolves when Aura library is loaded
      */
     function loadCoreLibrary() {
         return new Promise((resolve, reject) => {
-            enhancementLog('info', 'Loading core library...');
+            auraEnhancementLog('info', 'Loading mystical Aura core library...');
 
             const script = document.createElement('script');
-            script.src = `${ENHANCEMENT_CONFIG.cdnBase}/js/core/ingenuity.js`;
+            script.src = `${AURA_ENHANCEMENT_CONFIG.cdnBase}/js/core/ingenuity.js`;
             script.async = true;
             script.onload = function() {
-                enhancementLog('info', 'Core library loaded successfully');
+                auraEnhancementLog('info', 'Aura core library loaded successfully - mystical energy activated');
+                // Set up AuraCore reference from IngenuityCore for compatibility
+                if (window.IngenuityCore && !window.AuraCore) {
+                    window.AuraCore = window.IngenuityCore;
+                }
                 resolve();
             };
             script.onerror = function() {
-                enhancementLog('error', 'Failed to load core library');
-                reject(new Error('Core library failed to load'));
+                auraEnhancementLog('error', 'Failed to load Aura core library - mystical energy disrupted');
+                reject(new Error('Aura core library failed to load'));
             };
 
             document.head.appendChild(script);
@@ -130,9 +132,9 @@
     }
 
     /**
-     * Waits for the core library with retry mechanism
+     * Waits for the Aura core library with mystical retry mechanism
      * @param {number} retryCount - Current retry attempt
-     * @returns {Promise} Promise that resolves when core is available
+     * @returns {Promise} Promise that resolves when Aura core is available
      */
     function waitForCoreLibrary(retryCount = 0) {
         return new Promise((resolve, reject) => {
@@ -141,18 +143,18 @@
                 return;
             }
 
-            if (retryCount >= ENHANCEMENT_CONFIG.initialization.maxRetries) {
-                reject(new Error(`Core library not available after ${retryCount} retries`));
+            if (retryCount >= AURA_ENHANCEMENT_CONFIG.initialization.maxRetries) {
+                reject(new Error(`Aura core library not available after ${retryCount} retries - mystical energy disrupted`));
                 return;
             }
 
-            enhancementLog('info', `Waiting for core library... (attempt ${retryCount + 1})`);
+            auraEnhancementLog('info', `Waiting for mystical Aura core library... (attempt ${retryCount + 1})`);
 
             setTimeout(() => {
                 waitForCoreLibrary(retryCount + 1)
                     .then(resolve)
                     .catch(reject);
-            }, ENHANCEMENT_CONFIG.initialization.retryDelayMs);
+            }, AURA_ENHANCEMENT_CONFIG.initialization.retryDelayMs);
         });
     }
 
@@ -161,15 +163,24 @@
     // =================================================================
 
     /**
-     * Processes configuration from various sources
-     * @returns {Object} Final configuration object
+     * Processes Aura configuration from various mystical sources
+     * @returns {Object} Final Aura configuration object
      */
     function processConfiguration() {
-        let finalConfig = { ...ENHANCEMENT_CONFIG };
+        let finalConfig = { ...AURA_ENHANCEMENT_CONFIG };
 
-        // Check for global configuration
-        if (window.IngenuityConfig) {
-            enhancementLog('info', 'Found global configuration', window.IngenuityConfig);
+        // Check for global Aura configuration
+        if (window.AuraConfig) {
+            auraEnhancementLog('info', 'Found mystical Aura configuration', window.AuraConfig);
+            finalConfig = {
+                ...finalConfig,
+                ...window.AuraConfig
+            };
+        }
+
+        // Legacy configuration support
+        if (window.IngenuityConfig && !window.AuraConfig) {
+            auraEnhancementLog('info', 'Found legacy configuration, adapting to Aura system', window.IngenuityConfig);
             finalConfig = {
                 ...finalConfig,
                 ...window.IngenuityConfig
@@ -178,23 +189,23 @@
 
         // Check for URL parameters
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('ingenuity-debug')) {
-            finalConfig.debug = urlParams.get('ingenuity-debug') === 'true';
-            enhancementLog('info', `Debug mode set via URL: ${finalConfig.debug}`);
+        if (urlParams.has('aura-debug') || urlParams.has('ingenuity-debug')) {
+            finalConfig.debug = (urlParams.get('aura-debug') === 'true') || (urlParams.get('ingenuity-debug') === 'true');
+            auraEnhancementLog('info', `Aura debug mode set via URL: ${finalConfig.debug}`);
         }
 
-        // Respect user preferences
-        if (ENHANCEMENT_CONFIG.compatibility.respectUserPreferences) {
-            // Check for reduced motion preference
+        // Respect user preferences for mystical energy adaptation
+        if (AURA_ENHANCEMENT_CONFIG.compatibility.respectUserPreferences) {
+            // Check for reduced motion preference - affects energy field animations
             if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 finalConfig.respectsReducedMotion = true;
-                enhancementLog('info', 'Reduced motion preference detected');
+                auraEnhancementLog('info', 'Reduced motion preference detected - adapting mystical energy field');
             }
 
-            // Check for high contrast preference
+            // Check for high contrast preference - affects aura visibility
             if (window.matchMedia && window.matchMedia('(prefers-contrast: high)').matches) {
                 finalConfig.highContrast = true;
-                enhancementLog('info', 'High contrast preference detected');
+                auraEnhancementLog('info', 'High contrast preference detected - enhancing aura visibility');
             }
         }
 
@@ -206,7 +217,7 @@
     // =================================================================
 
     /**
-     * Performs compatibility and safety checks
+     * Performs Aura compatibility and mystical energy field safety checks
      * @returns {Object} Check results
      */
     function performCompatibilityCheck() {
@@ -214,53 +225,62 @@
             passed: true,
             warnings: [],
             errors: [],
-            features: {}
+            features: {},
+            mysticalReadiness: true
         };
 
-        // Check browser compatibility
+        // Check browser compatibility for mystical energy fields
         results.features.es6Support = typeof Symbol !== 'undefined';
         results.features.promiseSupport = typeof Promise !== 'undefined';
         results.features.cssCustomProps = window.CSS && CSS.supports('color', 'var(--test)');
         results.features.intersectionObserver = 'IntersectionObserver' in window;
+        results.features.auraFieldSupport = typeof window.requestAnimationFrame !== 'undefined';
 
         if (!results.features.es6Support) {
-            results.warnings.push('Limited ES6 support detected - some features may not work');
+            results.warnings.push('Limited ES6 support detected - some mystical features may not work');
+            results.mysticalReadiness = false;
         }
 
         if (!results.features.cssCustomProps) {
-            results.warnings.push('CSS custom properties not supported - styling may be limited');
+            results.warnings.push('CSS custom properties not supported - Aura styling may be limited');
         }
 
-        // Check for conflicts
-        if (ENHANCEMENT_CONFIG.compatibility.checkConflicts) {
-            // Check for other enhancement systems
+        if (!results.features.auraFieldSupport) {
+            results.warnings.push('Animation frame support limited - Aura energy field effects may be reduced');
+        }
+
+        // Check for conflicts with other enhancement systems
+        if (AURA_ENHANCEMENT_CONFIG.compatibility.checkConflicts) {
             const potentialConflicts = [
-                'IngenuityEnhancer', 
-                'SuperSoEnhancer', 
+                'AuraEnhancement',
+                'IngenuityEnhancer',
+                'SuperSoEnhancer',
                 'NotionEnhancer'
             ];
 
             potentialConflicts.forEach(conflict => {
-                if (window[conflict] && window[conflict] !== window.IngenuityCore) {
-                    results.warnings.push(`Potential conflict detected: ${conflict}`);
+                if (window[conflict] &&
+                    window[conflict] !== window.AuraCore &&
+                    window[conflict] !== window.IngenuityCore) {
+                    results.warnings.push(`Potential mystical energy conflict detected: ${conflict}`);
                 }
             });
         }
 
-        // Check DOM readiness
+        // Check DOM readiness for Aura enhancement
         if (document.readyState === 'loading') {
-            results.warnings.push('DOM still loading - enhancements will wait');
+            results.warnings.push('DOM still loading - Aura enhancements will wait for mystical alignment');
         }
 
         if (results.warnings.length > 0) {
-            enhancementLog('warn', 'Compatibility check warnings', results.warnings);
+            auraEnhancementLog('warn', 'Aura compatibility check warnings', results.warnings);
         }
 
         if (results.errors.length > 0) {
             results.passed = false;
-            enhancementLog('error', 'Compatibility check errors', results.errors);
+            auraEnhancementLog('error', 'Aura compatibility check errors - mystical energy disrupted', results.errors);
         } else {
-            enhancementLog('info', 'Compatibility check passed');
+            auraEnhancementLog('info', 'Aura compatibility check passed - mystical energy field ready');
         }
 
         return results;
@@ -271,64 +291,73 @@
     // =================================================================
 
     /**
-     * Main initialization function for the enhancement system
+     * Main initialization function for the Aura Enhancement system
      * @param {Object} userConfig - User-provided configuration
-     * @returns {Promise} Promise that resolves when initialization is complete
+     * @returns {Promise} Promise that resolves when Aura initialization is complete
      */
     async function initializeEnhancements(userConfig = {}) {
         try {
-            enhancementLog('info', `Starting ${ENHANCEMENT_CONFIG.name} v${ENHANCEMENT_CONFIG.version}`);
+            auraEnhancementLog('info', `Starting ${AURA_ENHANCEMENT_CONFIG.name} v${AURA_ENHANCEMENT_CONFIG.version}`);
 
-            // Process configuration
+            // Process mystical configuration
             const config = processConfiguration();
             Object.assign(config, userConfig);
 
-            // Perform compatibility check
+            // Perform Aura compatibility check
             const compatCheck = performCompatibilityCheck();
             if (!compatCheck.passed && !config.compatibility?.gracefulDegradation) {
-                throw new Error('Compatibility check failed and graceful degradation disabled');
+                throw new Error('Aura compatibility check failed and graceful degradation disabled - mystical energy disrupted');
             }
 
-            // Wait for or load core library
+            // Wait for or load Aura core library
             if (!isCoreLibraryAvailable()) {
-                enhancementLog('info', 'Core library not found, attempting to load...');
+                auraEnhancementLog('info', 'Aura core library not found, attempting mystical energy loading...');
                 await loadCoreLibrary();
             }
 
-            // Wait for core library to be ready
+            // Wait for Aura core library to be ready
             await waitForCoreLibrary();
 
-            // Initialize core library
-            enhancementLog('info', 'Initializing core library...');
-            const coreInitialized = window.IngenuityCore.init({
+            // Get the core reference (AuraCore or IngenuityCore for compatibility)
+            const coreLibrary = window.AuraCore || window.IngenuityCore;
+            
+            // Initialize Aura core library with production settings
+            auraEnhancementLog('info', 'Initializing mystical Aura core library...');
+            const coreInitialized = coreLibrary.init({
                 ...config,
-                debug: config.debug || false
+                debug: false, // Force debug off in production
+                auraMode: true // Enable mystical energy mode
             });
 
             if (!coreInitialized) {
-                throw new Error('Core library initialization failed');
+                throw new Error('Aura core library initialization failed - mystical energy could not be activated');
             }
 
             // Report successful initialization
-            enhancementLog('info', 'Enhancement system initialized successfully');
+            auraEnhancementLog('info', 'Aura Enhancement system initialized successfully - mystical energy field active');
 
-            // Set up global reference
-            window.IngenuityEnhancer = {
-                version: ENHANCEMENT_CONFIG.version,
+            // Set up global Aura reference
+            window.AuraEnhancement = {
+                version: AURA_ENHANCEMENT_CONFIG.version,
                 config: config,
-                core: window.IngenuityCore,
+                core: coreLibrary,
                 initialized: true,
-                initializationTime: Date.now()
+                initializationTime: Date.now(),
+                mysticalEnergyActive: true,
+                platforms: AURA_ENHANCEMENT_CONFIG.platforms
             };
+
+            // Maintain backward compatibility
+            window.IngenuityEnhancer = window.AuraEnhancement;
 
             return true;
 
         } catch (error) {
-            enhancementLog('error', 'Enhancement initialization failed', error);
+            auraEnhancementLog('error', 'Aura Enhancement initialization failed - mystical energy disrupted', error);
             
             // Attempt graceful degradation
-            if (ENHANCEMENT_CONFIG.compatibility.gracefulDegradation) {
-                enhancementLog('info', 'Attempting graceful degradation...');
+            if (AURA_ENHANCEMENT_CONFIG.compatibility.gracefulDegradation) {
+                auraEnhancementLog('info', 'Attempting mystical energy recovery through graceful degradation...');
                 return initializeMinimalMode();
             }
             
@@ -337,49 +366,33 @@
     }
 
     /**
-     * Minimal mode initialization for graceful degradation
+     * Minimal Aura mode initialization for graceful mystical degradation
      * @returns {boolean} Success status
      */
     function initializeMinimalMode() {
         try {
-            enhancementLog('info', 'Initializing minimal mode...');
+            auraEnhancementLog('info', 'Initializing minimal Aura mode - reduced mystical energy field...');
 
-            // Create basic Hello World without advanced features
-            const simpleHelloWorld = () => {
-                const notice = document.createElement('div');
-                notice.style.cssText = `
-                    position: fixed; top: 20px; right: 20px; z-index: 9999;
-                    background: #FF6B35; color: white; padding: 15px 20px;
-                    border-radius: 8px; font-family: sans-serif;
-                    font-size: 14px; font-weight: 600; cursor: pointer;
-                `;
-                notice.textContent = '🎉 Hello from The Ingenuity Co!';
-                notice.onclick = () => notice.remove();
-                document.body.appendChild(notice);
-
-                setTimeout(() => notice.remove(), 5000);
-                enhancementLog('info', 'Minimal Hello World displayed');
-            };
-
-            // Wait for DOM then show minimal hello world
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', simpleHelloWorld);
-            } else {
-                setTimeout(simpleHelloWorld, 100);
-            }
-
-            // Set up minimal global reference
-            window.IngenuityEnhancer = {
-                version: ENHANCEMENT_CONFIG.version,
+            // Production minimal Aura mode - invisible energy field only
+            // Set up core mystical functionality without visible UI elements
+            
+            // Set up minimal Aura global reference
+            window.AuraEnhancement = {
+                version: AURA_ENHANCEMENT_CONFIG.version,
                 minimalMode: true,
-                initialized: true
+                mysticalEnergyReduced: true,
+                initialized: true,
+                platforms: AURA_ENHANCEMENT_CONFIG.platforms
             };
 
-            enhancementLog('info', 'Minimal mode initialized successfully');
+            // Maintain backward compatibility
+            window.IngenuityEnhancer = window.AuraEnhancement;
+
+            auraEnhancementLog('info', 'Minimal Aura mode initialized successfully - basic mystical energy active');
             return true;
 
         } catch (error) {
-            enhancementLog('error', 'Even minimal mode failed', error);
+            auraEnhancementLog('error', 'Minimal Aura mode initialization failed - mystical energy completely disrupted', error);
             return false;
         }
     }
@@ -392,74 +405,103 @@
      * Safe initialization wrapper with comprehensive error handling
      */
     function safeInitialization() {
-        // Check if already initialized
-        if (window.IngenuityEnhancer && window.IngenuityEnhancer.initialized) {
-            enhancementLog('warn', 'Enhancement system already initialized');
+        // Check if Aura already initialized
+        if (window.AuraEnhancement && window.AuraEnhancement.initialized) {
+            auraEnhancementLog('warn', 'Aura Enhancement system already initialized - mystical energy already active');
             return;
         }
 
-        // Check if initialization is disabled
-        if (window.IngenuityNoAutoInit) {
-            enhancementLog('info', 'Auto-initialization disabled via IngenuityNoAutoInit flag');
+        // Legacy check for backward compatibility
+        if (window.IngenuityEnhancer && window.IngenuityEnhancer.initialized && !window.AuraEnhancement) {
+            auraEnhancementLog('warn', 'Legacy enhancement system detected - upgrading to Aura Enhancement');
+        }
+
+        // Check if Aura initialization is disabled
+        if (window.AuraNoAutoInit || window.IngenuityNoAutoInit) {
+            auraEnhancementLog('info', 'Aura auto-initialization disabled via AuraNoAutoInit/IngenuityNoAutoInit flag');
             return;
         }
 
-        // Perform initialization
+        // Perform mystical Aura initialization
         const initPromise = initializeEnhancements();
 
         initPromise
             .then((success) => {
                 if (success) {
-                    enhancementLog('info', 'Auto-initialization completed successfully');
+                    auraEnhancementLog('info', 'Aura auto-initialization completed successfully - mystical energy field established');
                 } else {
-                    enhancementLog('warn', 'Auto-initialization completed with issues');
+                    auraEnhancementLog('warn', 'Aura auto-initialization completed with issues - reduced mystical energy');
                 }
             })
             .catch((error) => {
-                enhancementLog('error', 'Auto-initialization failed completely', error);
+                auraEnhancementLog('error', 'Aura auto-initialization failed completely - mystical energy disrupted', error);
             });
 
         return initPromise;
     }
 
     // =================================================================
-    // GLOBAL API & EXPOSURE
+    // GLOBAL AURA API & MYSTICAL EXPOSURE
     // =================================================================
 
-    // Expose main initialization function globally
+    // Expose main Aura initialization function globally
+    window.initAuraEnhancements = initializeEnhancements;
+    // Maintain backward compatibility
     window.initIngenuityEnhancements = initializeEnhancements;
 
-    // Log that the enhancement script has loaded
-    enhancementLog('info', 'Enhancement script loaded and ready');
+    // Log that the Aura enhancement script has loaded
+    auraEnhancementLog('info', 'Aura Enhancement script loaded and mystical energy ready');
 
-    // Auto-initialize with proper timing
+    // Auto-initialize with minimal delay for production
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(safeInitialization, ENHANCEMENT_CONFIG.initialization.delayMs);
+            setTimeout(safeInitialization, AURA_ENHANCEMENT_CONFIG.initialization.delayMs);
         });
     } else {
-        setTimeout(safeInitialization, ENHANCEMENT_CONFIG.initialization.delayMs);
+        setTimeout(safeInitialization, AURA_ENHANCEMENT_CONFIG.initialization.delayMs);
     }
 
-    // Handle page visibility changes for cleanup
+    // Handle page visibility changes for mystical energy refresh
     document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible' && window.IngenuityCore) {
-            enhancementLog('info', 'Page became visible - refreshing enhancements');
+        if (document.visibilityState === 'visible' && (window.AuraCore || window.IngenuityCore)) {
+            auraEnhancementLog('info', 'Page became visible - refreshing mystical energy field');
         }
     });
 
 })(window, document);
 
 /*!
- * Ready for Super.so Integration!
- * 
- * To use this enhancement system:
- * 1. Upload this file and ingenuity.js to your CDN
- * 2. Add to Super.so's "End of Body" injection:
- *    <script src="https://your-cdn.com/v1/js/enhancement.js"></script>
- * 3. Optionally configure in "Head Tag" injection:
- *    <script>window.IngenuityConfig = { debug: true };</script>
- * 
- * The system will automatically initialize and display branded
- * Hello World functionality that's immediately visible and interactive.
+ * Ready for Production Aura Enhancement Integration!
+ *
+ * To use the Aura Enhancement - Mystical Energy Extension System in production:
+ *
+ * PRIMARY SOURCE (theingenuity.co):
+ * 1. Upload this file and ingenuity.js to your CDN at https://cdn.theingenuity.co/v1
+ * 2. The system extends mystical energy across theingenuity.co automatically
+ *
+ * PLATFORM EXTENSIONS:
+ *
+ * Super.so Integration:
+ * 1. Add to Super.so's "End of Body" injection:
+ *    <script src="https://cdn.theingenuity.co/v1/js/enhancement.js"></script>
+ * 2. Optionally enable Aura debug mode in "Head Tag" injection:
+ *    <script>window.AuraConfig = { debug: true, auraLogging: true };</script>
+ *    OR (legacy): <script>window.IngenuityConfig = { debug: true };</script>
+ *
+ * GitHub Pages Integration:
+ * 1. Include in your HTML head or before closing body tag:
+ *    <script src="https://cdn.theingenuity.co/v1/js/enhancement.js"></script>
+ * 2. Add mystical energy classes to elements you want to enhance:
+ *    - Add .aura-enhanced to containers (legacy: .ingenuity-enhanced)
+ *    - Use .aura-* utility classes for specific styling (legacy: .ing-*)
+ *
+ * MYSTICAL FEATURES:
+ * - Automatic initialization with invisible mystical energy field
+ * - Cross-platform energy extension capabilities
+ * - Backward compatibility with legacy IngenuityEnhancer
+ * - Production-optimized with graceful mystical degradation
+ * - API access: window.AuraEnhancement or window.initAuraEnhancements()
+ *
+ * The Aura Enhancement system extends The Ingenuity Co's digital energy field
+ * across the web with sophisticated, invisible enhancement capabilities.
  */
