@@ -5,7 +5,7 @@
 A lightweight, CDN-ready enhancement system that extends The Ingenuity Co's brand identity and interactive elements across any web platform.
 
 [![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](#version-history)
-[![CDN Ready](https://img.shields.io/badge/CDN-ready-green.svg)](#installation)
+[![CDN Ready](https://img.shields.io/badge/CDN-ready-green.svg)](#getting-started)
 
 ## What is Aura?
 
@@ -28,12 +28,95 @@ Aura is a modular enhancement system designed to seamlessly integrate The Ingenu
 - **Modular Architecture**: Enable or disable features as needed
 - **Debug Support**: Built-in logging and troubleshooting tools
 
-## Installation
+## Getting Started
 
-### 1. CDN Setup
+### Quick Start (Recommended)
 
-Upload the following files to your CDN maintaining the directory structure:
+Use jsDelivr's free CDN for instant deployment:
 
+#### 1. Add to Head Section
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/css/core/aura.css">
+<script>
+window.AuraConfig = {
+  version: 'v1',
+  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
+  debug: false
+};
+</script>
+```
+
+#### 2. Add Before Closing Body Tag
+```html
+<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/js/core/aura.js"></script>
+```
+
+#### 3. Optional: Custom Color Overrides
+```css
+:root {
+  --aura-primary: #A8D5E5;
+  --aura-secondary: #D4C5E8;
+  --aura-accent: #B8E6D3;
+  --aura-neutral: #8B9DC3;
+}
+```
+
+## Deployment Options
+
+### Option 1: Super.so Integration
+
+Perfect for Super.so websites (Pro plan required):
+
+#### Step 1: Navigate to Settings
+Go to **Site Settings → Custom Code** in your Super.so dashboard
+
+#### Step 2: Header Code
+Add this to the **Header** section:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/css/core/aura.css">
+<script>
+window.AuraConfig = {
+  version: 'v1',
+  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
+  debug: false,
+  features: {
+    brandStyling: true,
+    interactiveElements: true,
+    accessibility: true
+  }
+};
+</script>
+```
+
+#### Step 3: Footer Code
+Add this to the **Footer** section:
+```html
+<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/js/core/aura.js"></script>
+```
+
+#### Step 4: Super.so Specific Styling (Optional)
+Add to **CSS** section:
+```css
+/* Super.so/Notion specific overrides */
+.notion-page-content {
+  font-family: var(--aura-font-family) !important;
+}
+
+.notion-link {
+  color: var(--aura-primary) !important;
+  transition: var(--aura-transition-fast) !important;
+}
+
+.notion-link:hover {
+  color: var(--aura-primary-hover) !important;
+}
+```
+
+### Option 2: Custom CDN Deployment
+
+For enterprise or self-hosted solutions:
+
+#### File Structure
 ```
 your-cdn.com/
 └── v1/
@@ -45,12 +128,9 @@ your-cdn.com/
             └── aura.js
 ```
 
-### 2. Integration
-
-Add these three code blocks to your platform:
-
-#### Head Section
+#### Implementation
 ```html
+<!-- Head Section -->
 <link rel="stylesheet" href="https://your-cdn.com/v1/css/core/aura.css">
 <script>
 window.AuraConfig = {
@@ -59,23 +139,49 @@ window.AuraConfig = {
   debug: false
 };
 </script>
-```
 
-#### Before Closing Body Tag
-```html
+<!-- Before Closing Body -->
 <script src="https://your-cdn.com/v1/js/core/aura.js"></script>
 ```
 
-#### Custom Styles (Optional)
-```css
-/* Override default colors if needed */
-:root {
-  --aura-primary: #A8D5E5;
-  --aura-secondary: #D4C5E8;
-  --aura-accent: #B8E6D3;
-  --aura-neutral: #8B9DC3;
-}
+#### Performance Optimization
+```apache
+# .htaccess for Apache
+<FilesMatch "\.(css|js)$">
+  Header set Cache-Control "public, max-age=31536000"
+  Header set Expires "Thu, 31 Dec 2025 23:59:59 GMT"
+</FilesMatch>
 ```
+
+### Option 3: Platform-Specific Deployments
+
+#### GitHub Pages
+1. Fork this repository
+2. Enable GitHub Pages in settings
+3. Use your repository URL:
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR-USERNAME/aura@main/v1/css/core/aura.css">
+```
+
+#### WordPress
+1. Install "Insert Headers and Footers" plugin
+2. Add header and footer code
+3. Test in staging first
+
+#### Webflow
+1. **Project Settings → Custom Code**
+2. Add CSS and config to **Head Code**
+3. Add JavaScript to **Footer Code**
+
+#### Squarespace
+1. **Settings → Advanced → Code Injection**
+2. Add header code to **Header** section
+3. Add footer code to **Footer** section
+
+#### Other Platforms
+- **Vercel/Netlify**: Add to HTML templates
+- **Jekyll/Hugo**: Include in layout files
+- **React/Vue**: Import in main component
 
 ## Configuration
 
@@ -83,26 +189,12 @@ window.AuraConfig = {
 ```javascript
 window.AuraConfig = {
   version: 'v1',
-  cdnBase: 'https://your-cdn.com/v1',
+  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
   debug: false,
   features: {
-    brandStyling: true,       // Apply brand colors and typography
-    interactiveElements: true, // Enable hover effects and animations
-    accessibility: true       // Enhanced accessibility features
-  }
-};
-```
-
-### Production Configuration
-```javascript
-window.AuraConfig = {
-  version: 'v1',
-  cdnBase: 'https://your-cdn.com/v1',
-  debug: false,
-  features: {
-    brandStyling: true,
-    interactiveElements: true,
-    accessibility: true
+    brandStyling: true,       // Brand colors and typography
+    interactiveElements: true, // Hover effects and animations
+    accessibility: true       // Enhanced accessibility
   }
 };
 ```
@@ -111,67 +203,60 @@ window.AuraConfig = {
 ```javascript
 window.AuraConfig = { debug: true };
 ```
+Enables detailed console logging for troubleshooting.
 
-Enable detailed console logging for development and troubleshooting.
-
-## Supported Platforms
-
-- **Super.so** (Pro plan required for custom code injection)
-- **GitHub Pages** with custom HTML support
-- **Static Site Generators** (Jekyll, Hugo, Gatsby, etc.)
-- **WordPress** with custom code plugins
-- **Vercel, Netlify** and other modern hosting platforms
-
-## Recommended CDN Providers
-
-- **Cloudflare** (Recommended for global performance)
-- **AWS CloudFront** (Enterprise-grade reliability)  
-- **Azure CDN** (Microsoft ecosystem integration)
-- **jsDelivr** (Free tier available)
+### Feature Toggle
+```javascript
+// Disable specific features
+window.AuraConfig = {
+  features: {
+    brandStyling: false,     // Keep existing styles
+    interactiveElements: true // Only add interactions
+  }
+};
+```
 
 ## Verification
 
-After deployment, verify your installation:
+After deployment, check these items:
 
-1. **Visual Check** - Brand colors should appear on buttons and headers
+1. **Visual Check** - Brand colors appear on buttons and headers
 2. **Console Check** - Look for Aura initialization messages
-3. **Network Tab** - Verify all files load with 200 status codes
-4. **Mobile Test** - Check responsive behavior on various devices
+3. **Network Tab** - All files load with 200 status codes
+4. **Mobile Test** - Responsive behavior works correctly
 
 ## Troubleshooting
 
 ### Common Issues
 
-**Files Not Loading**
-- Verify CDN URLs are publicly accessible
+#### Files Not Loading
+- Verify CDN URLs are accessible
 - Check CORS headers allow cross-origin requests
-- Ensure cache headers are properly configured
+- Ensure cache headers are configured
 
-**Styles Not Applying**
-- Check for CSS conflicts with existing stylesheets
-- Verify load order (Aura CSS should load before custom styles)
-- Try adding `!important` declarations if needed
+#### Styles Not Applying
+- Check for CSS conflicts with existing styles
+- Verify Aura CSS loads before custom styles
+- Try `!important` declarations if needed
 
-**JavaScript Errors**
-- Enable debug mode for detailed error logging
-- Verify script loading order in browser dev tools
-- Check for conflicts with existing JavaScript libraries
+#### JavaScript Errors
+- Enable debug mode for detailed logging
+- Check script loading order in dev tools
+- Look for conflicts with existing libraries
 
 ### Quick Fixes
 
-**Emergency Rollback**
+#### Emergency Disable
 ```javascript
-// Disable all features immediately
 window.AuraConfig = { features: {} };
 ```
 
-**Gradual Disable**
+#### Gradual Rollback
 ```javascript
-// Disable specific features
 window.AuraConfig = {
   features: {
-    brandStyling: false,
-    interactiveElements: true
+    brandStyling: false,  // Disable styling
+    interactiveElements: true  // Keep interactions
   }
 };
 ```
@@ -179,14 +264,14 @@ window.AuraConfig = {
 ## Browser Support
 
 - **Modern Browsers**: Chrome 60+, Firefox 60+, Safari 12+, Edge 79+
-- **CSS Features**: CSS Custom Properties, CSS Grid, Flexbox
+- **CSS Features**: Custom Properties, Grid, Flexbox
 - **JavaScript**: ES6+ with graceful degradation
 
 ## Version History
 
 - **v1.0.0** - Initial release with brand identity and interactive elements
 - **v1.1.0** (Planned) - Enhanced component library
-- **v1.2.0** (Planned) - Analytics integration and performance metrics
+- **v1.2.0** (Planned) - Analytics integration
 
 ## Contributing
 

@@ -24,7 +24,10 @@
     "interactive-elements",
     "cdn"
   ],
-  "author": "The Ingenuity Co Development Team",
+  "author": {
+    "name": "Rudraprasad Das",
+    "email": "brayn003@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/theingenuityco/aura/issues"
