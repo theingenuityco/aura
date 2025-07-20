@@ -1,5 +1,39 @@
 {
+  "name": "aura",
+  "version": "1.0.0",
+  "description": "The Ingenuity Co's digital presence extension from theingenuity.co",
+  "main": "v1/js/core/aura.js",
+  "files": [
+    "v1/"
+  ],
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theingenuityco/aura.git"
+  },
+  "keywords": [
+    "aura",
+    "theingenuity",
+    "digital-presence",
+    "css",
+    "javascript",
+    "enhancement",
+    "brand-colors",
+    "interactive-elements",
+    "cdn"
+  ],
+  "author": "The Ingenuity Co Development Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theingenuityco/aura/issues"
+  },
+  "homepage": "https://theingenuity.co",
   "dependencies": {
     "puppeteer": "^24.14.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
