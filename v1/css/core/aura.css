@@ -1,0 +1,146 @@
+/*
+ * The Ingenuity Co - Aura Brand Colors & Core Variables
+ * Aura Enhancement System v1.0.0
+ *
+ * This file defines the core brand identity colors and variables
+ * that can be used throughout the Aura enhancement system.
+ */
+
+:root {
+    /* ===== THE INGENUITY CO AURA PALETTE ===== */
+    
+    /* Primary Brand Colors - Calming Pastels */
+    --aura-primary: #A8D5E5;           /* Soft Sky Blue - Main brand color */
+    --aura-secondary: #D4C5E8;         /* Gentle Lavender - Supporting color */
+    --aura-accent: #B8E6D3;            /* Mint Green - Highlight/accent color */
+    --aura-neutral: #8B9DC3;           /* Muted Blue-Gray - Primary text */
+    
+    /* Extended Color Palette */
+    --aura-light: #F7F9FC;             /* Very Soft Blue-White background */
+    --aura-white: #FFFFFF;             /* Pure white */
+    --aura-success: #28A745;           /* Success states */
+    --aura-warning: #FFC107;           /* Warning states */
+    --aura-danger: #DC3545;            /* Error states */
+    --aura-info: #17A2B8;              /* Info states */
+    
+    /* Color Variations */
+    --aura-primary-light: rgba(168, 213, 229, 0.1);
+    --aura-primary-hover: #92C7DE;
+    --aura-secondary-light: rgba(212, 197, 232, 0.1);
+    --aura-secondary-hover: #C4B1DF;
+    --aura-accent-light: rgba(184, 230, 211, 0.1);
+    --aura-accent-hover: #A5DDC7;
+    
+    /* ===== GRADIENTS ===== */
+    --aura-gradient-primary: linear-gradient(135deg, var(--aura-primary), var(--aura-accent));
+    --aura-gradient-secondary: linear-gradient(135deg, var(--aura-secondary), var(--aura-primary));
+    --aura-gradient-subtle: linear-gradient(135deg, var(--aura-light), var(--aura-white));
+    
+    /* ===== SHADOWS ===== */
+    --aura-shadow-primary: 0 4px 15px rgba(168, 213, 229, 0.3);
+    --aura-shadow-secondary: 0 4px 15px rgba(212, 197, 232, 0.3);
+    --aura-shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --aura-shadow-bold: 0 8px 25px rgba(0, 0, 0, 0.15);
+    --aura-shadow-hover: 0 6px 20px rgba(168, 213, 229, 0.4);
+    
+    /* ===== TYPOGRAPHY ===== */
+    --aura-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --aura-font-weight-normal: 400;
+    --aura-font-weight-medium: 500;
+    --aura-font-weight-semibold: 600;
+    --aura-font-weight-bold: 700;
+    
+    /* ===== SPACING ===== */
+    --aura-spacing-xs: 0.25rem;        /* 4px */
+    --aura-spacing-sm: 0.5rem;         /* 8px */
+    --aura-spacing-md: 1rem;           /* 16px */
+    --aura-spacing-lg: 1.5rem;         /* 24px */
+    --aura-spacing-xl: 2rem;           /* 32px */
+    --aura-spacing-xxl: 3rem;          /* 48px */
+    
+    /* ===== BORDER RADIUS ===== */
+    --aura-radius-sm: 4px;
+    --aura-radius-md: 8px;
+    --aura-radius-lg: 12px;
+    --aura-radius-xl: 16px;
+    --aura-radius-pill: 25px;
+    --aura-radius-circle: 50%;
+    
+    /* ===== TRANSITIONS ===== */
+    --aura-transition-fast: all 0.2s ease;
+    --aura-transition-medium: all 0.3s ease;
+    --aura-transition-slow: all 0.5s ease;
+    --aura-transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===== AURA BRAND COLOR UTILITY CLASSES ===== */
+
+/* Background Colors */
+.aura-bg-primary { background-color: var(--aura-primary) !important; }
+.aura-bg-secondary { background-color: var(--aura-secondary) !important; }
+.aura-bg-accent { background-color: var(--aura-accent) !important; }
+.aura-bg-neutral { background-color: var(--aura-neutral) !important; }
+.aura-bg-light { background-color: var(--aura-light) !important; }
+.aura-bg-white { background-color: var(--aura-white) !important; }
+
+/* Text Colors */
+.aura-text-primary { color: var(--aura-primary) !important; }
+.aura-text-secondary { color: var(--aura-secondary) !important; }
+.aura-text-accent { color: var(--aura-accent) !important; }
+.aura-text-neutral { color: var(--aura-neutral) !important; }
+.aura-text-white { color: var(--aura-white) !important; }
+
+/* Border Colors */
+.aura-border-primary { border-color: var(--aura-primary) !important; }
+.aura-border-secondary { border-color: var(--aura-secondary) !important; }
+.aura-border-accent { border-color: var(--aura-accent) !important; }
+
+/* Gradient Backgrounds */
+.aura-gradient-primary {
+    background: var(--aura-gradient-primary) !important;
+    color: var(--aura-white);
+}
+.aura-gradient-secondary {
+    background: var(--aura-gradient-secondary) !important;
+    color: var(--aura-white);
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Ensure proper contrast for text on colored backgrounds */
+.aura-bg-primary,
+.aura-bg-secondary,
+.aura-bg-accent,
+.aura-bg-neutral {
+    color: var(--aura-white);
+}
+
+.aura-bg-light,
+.aura-bg-white {
+    color: var(--aura-neutral);
+}
+
+/* Focus states for accessibility */
+.aura-focus-ring:focus {
+    outline: 2px solid var(--aura-primary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --aura-primary: #5BA8C7;
+        --aura-secondary: #8A6BB5;
+        --aura-neutral: #2C3E50;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --aura-transition-fast: none;
+        --aura-transition-medium: none;
+        --aura-transition-slow: none;
+        --aura-transition-bounce: none;
+    }
+}

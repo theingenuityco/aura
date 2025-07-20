@@ -11,13 +11,13 @@
  * - Mystical injection points for CSS, JS, and digital assets
  * - Invisible presence with graceful degradation
  * - Clean API for programmatic energy management
- * - Legacy animation dependencies (backward compatibility)
+ * - Modern animation system with graceful degradation
  * - Configurable energy emanation mechanisms
  *
  * Primary Target: theingenuity.co - The source of digital aura
  * Energy Channels: Super.so, GitHub Pages, static site generators
  * Author: The Ingenuity Co Development Team
- * License: Proprietary - Digital Aura Protection
+ * License: MIT
  */
 
 (function(window, document) {
@@ -77,7 +77,7 @@
             light: '#F8F9FA',
             aura: '#7C4DFF' // Mystical aura color
         },
-        // Legacy animation support for backward compatibility
+        // Modern animation system
         animation: {
             duration: 300,
             easing: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
@@ -284,13 +284,6 @@
                 '.reveal-right:not(.revealed)',
                 '.reveal-scale:not(.revealed)',
                 '.reveal-rotate:not(.revealed)',
-                // Maintain backward compatibility with ing- prefixes
-                '.ing-reveal:not(.ing-revealed)',
-                '.ing-reveal-fade:not(.ing-revealed)',
-                '.ing-reveal-left:not(.ing-revealed)',
-                '.ing-reveal-right:not(.ing-revealed)',
-                '.ing-reveal-scale:not(.ing-revealed)',
-                '.ing-reveal-rotate:not(.ing-revealed)',
                 // Aura-specific classes
                 '.aura-reveal:not(.aura-revealed)',
                 '.aura-fade:not(.aura-revealed)',
@@ -326,41 +319,30 @@
             // Handle new reveal-ready class
             if (element.classList.contains('reveal-ready')) {
                 element.classList.add('revealed');
-            } else if (element.classList.contains('ing-reveal-ready')) {
-                // Backward compatibility
-                element.classList.add('ing-revealed');
             } else if (element.classList.contains('aura-reveal-ready')) {
-                // Aura-specific
                 element.classList.add('aura-revealed');
             } else {
                 // For elements with direct animation classes
                 element.style.opacity = '1';
                 element.style.transform = 'none';
                 element.classList.add('revealed');
-                // Also add backward compatibility classes
-                element.classList.add('ing-revealed');
                 element.classList.add('aura-revealed');
             }
 
-            // Handle staggered children (support all class variants)
+            // Handle staggered children
             if (element.classList.contains('stagger-children') ||
                 element.classList.contains('stagger-fast') ||
-                element.classList.contains('ing-stagger-children') ||
-                element.classList.contains('ing-stagger-fast') ||
                 element.classList.contains('aura-stagger-children') ||
                 element.classList.contains('aura-stagger-fast')) {
                 const children = element.children;
                 Array.from(children).forEach((child, index) => {
                     const delay = (element.classList.contains('stagger-fast') ||
-                                   element.classList.contains('ing-stagger-fast') ||
                                    element.classList.contains('aura-stagger-fast')) ?
                         (index + 1) * 50 : (index + 1) * 100;
                     
                     setTimeout(() => {
                         if (child.classList.contains('reveal-ready')) {
                             child.classList.add('revealed');
-                        } else if (child.classList.contains('ing-reveal-ready')) {
-                            child.classList.add('ing-revealed');
                         } else if (child.classList.contains('aura-reveal-ready')) {
                             child.classList.add('aura-revealed');
                         }
@@ -394,19 +376,6 @@
         } else if (element.classList.contains('reveal-rotate')) {
             return 'rotate(-5deg) scale(0.95)';
         }
-        // Backward compatibility with ing- prefixes
-        else if (element.classList.contains('ing-reveal') ||
-            element.classList.contains('ing-reveal-fade')) {
-            return 'translateY(30px)';
-        } else if (element.classList.contains('ing-reveal-left')) {
-            return 'translateX(-30px)';
-        } else if (element.classList.contains('ing-reveal-right')) {
-            return 'translateX(30px)';
-        } else if (element.classList.contains('ing-reveal-scale')) {
-            return 'scale(0.95)';
-        } else if (element.classList.contains('ing-reveal-rotate')) {
-            return 'rotate(-5deg) scale(0.95)';
-        }
         // Aura-specific classes
         else if (element.classList.contains('aura-reveal') ||
             element.classList.contains('aura-fade')) {
@@ -430,13 +399,6 @@
                 .reveal-right:not(.revealed),
                 .reveal-scale:not(.revealed),
                 .reveal-rotate:not(.revealed),
-                .ing-reveal-ready,
-                .ing-reveal:not(.ing-revealed),
-                .ing-reveal-fade:not(.ing-revealed),
-                .ing-reveal-left:not(.ing-revealed),
-                .ing-reveal-right:not(.ing-revealed),
-                .ing-reveal-scale:not(.ing-revealed),
-                .ing-reveal-rotate:not(.ing-revealed),
                 .aura-reveal-ready,
                 .aura-reveal:not(.aura-revealed),
                 .aura-fade:not(.aura-revealed),
@@ -447,13 +409,10 @@
                 element.style.opacity = '1';
                 element.style.transform = 'none';
                 element.classList.add('revealed');
-                element.classList.add('ing-revealed'); // Backward compatibility
-                element.classList.add('aura-revealed'); // Aura-specific
+                element.classList.add('aura-revealed');
                 
                 if (element.classList.contains('reveal-ready')) {
                     element.classList.add('revealed');
-                } else if (element.classList.contains('ing-reveal-ready')) {
-                    element.classList.add('ing-revealed');
                 } else if (element.classList.contains('aura-reveal-ready')) {
                     element.classList.add('aura-revealed');
                 }
@@ -545,9 +504,6 @@
                 energyLevel: platformConfig.energyLevel
             };
 
-            // Backward compatibility
-            window.IngenuityPlatform = window.AuraPlatform;
-
             auraLog('info', 'Aura injection points initialized', platformConfig);
             return true;
 
@@ -605,8 +561,7 @@
                     attributes: {
                         rel: 'stylesheet',
                         href: url,
-                        'data-aura-injection': 'true',
-                        'data-ingenuity-injection': 'true' // Backward compatibility
+                        'data-aura-injection': 'true'
                     }
                 });
 
@@ -644,7 +599,6 @@
                     attributes: {
                         src: url,
                         'data-aura-injection': 'true',
-                        'data-ingenuity-injection': 'true', // Backward compatibility
                         ...(options.async && { async: true }),
                         ...(options.defer && { defer: true })
                     }
@@ -710,10 +664,6 @@
         
         // Store status in global namespace for external access
         window.AuraStatus = status;
-        // Backward compatibility
-        window.IngenuityDeliveryStatus = status;
-        window.IngenuityStatus = status;
-        window.RevealAIStatus = status;
         
         return status;
     }
@@ -737,16 +687,6 @@
         // Check if existing Aura instance
         if (window.AuraCore && window.AuraCore.version !== AURA_CONFIG.version) {
             issues.push(`Aura version conflict: existing v${window.AuraCore.version}, loading v${AURA_CONFIG.version}`);
-        }
-        // Backward compatibility checks
-        if (window.IngenuityDelivery && window.IngenuityDelivery.version !== AURA_CONFIG.version) {
-            issues.push(`Legacy IngenuityDelivery conflict: existing v${window.IngenuityDelivery.version}, loading v${AURA_CONFIG.version}`);
-        }
-        if (window.RevealAI && window.RevealAI.version !== AURA_CONFIG.version) {
-            issues.push(`Legacy RevealAI conflict: existing v${window.RevealAI.version}, loading v${AURA_CONFIG.version}`);
-        }
-        if (window.IngenuityCore && window.IngenuityCore.version !== AURA_CONFIG.version) {
-            issues.push(`Legacy IngenuityCore conflict: existing v${window.IngenuityCore.version}, loading v${AURA_CONFIG.version}`);
         }
         
         if (issues.length > 0) {
@@ -885,15 +825,8 @@
     window.AuraCore = AuraCore;
     window.Aura = AuraCore; // Short alias
     
-    // Backward compatibility - maintain all legacy interfaces
-    window.IngenuityDelivery = AuraCore;
-    window.IngenuityCore = AuraCore;
-    window.RevealAI = AuraCore;
-    
     // Auto-initialize if not disabled
-    if (!window.AuraNoAutoInit && 
-        !window.IngenuityNoAutoInit && 
-        !window.RevealAINoAutoInit) {
+    if (!window.AuraNoAutoInit) {
         // Small delay to ensure everything is ready
         setTimeout(() => {
             initialize();
