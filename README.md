@@ -1,282 +1,381 @@
-# 🌟 Aura
+# 🌟 Aura v3.0.0
 
-> **The Ingenuity Co's digital presence extension system**
+> **Simple aura.css and aura.js that can be imported to enhance your site**
 
-A lightweight, CDN-ready enhancement system that extends The Ingenuity Co's brand identity and interactive elements across any web platform.
+A lightweight, easy-to-use web enhancement library from The Ingenuity Co. Aura provides brand colors, styling utilities, and interactive elements with a clean, simple architecture that works on any website.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)](#version-history)
-[![CDN Ready](https://img.shields.io/badge/CDN-ready-green.svg)](#getting-started)
+[![Version](https://img.shields.io/badge/version-3.0.0-orange.svg)](#version-history)
+[![CDN Ready](https://img.shields.io/badge/CDN-ready-green.svg)](#quick-start)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
 
-## What is Aura?
+## ✨ What's New in v3.0.0
 
-Aura is a modular enhancement system designed to seamlessly integrate The Ingenuity Co's brand identity into any web platform. Whether you're using Super.so, GitHub Pages, or custom static sites, Aura provides consistent styling and interactive elements with minimal setup.
+🎯 **Simplified Architecture** - Clean root-level files replace complex directory structures  
+🚀 **Easy Import** - Just two files: [`aura.css`](./aura.css) and [`aura.js`](./aura.js)  
+🔧 **Unified Testing** - Single [`test-runner.js`](./test-runner.js) for all testing needs  
+🎨 **Enhanced Brand System** - Complete CSS variable system for The Ingenuity Co brand  
+🏗️ **Smart Platform Detection** - Automatic Next.js/Super.so detection and optimization  
 
-## Features
+## 📁 Project Structure
 
-### 🎨 **Brand Identity**
-- **Cohesive Color Palette**: Calming pastels with high-contrast accessibility support
-- **Typography System**: Modern, readable font stack with proper scaling
-- **Component Styling**: Automatic enhancement of buttons, headers, and interactive elements
-
-### ✨ **Interactive Elements**
-- **Smooth Animations**: Subtle hover effects and transitions that respect user preferences
-- **Responsive Design**: Mobile-first approach with adaptive layouts
-- **Accessibility First**: Proper focus states and reduced motion support
-
-### 🚀 **Developer Experience**
-- **Platform Agnostic**: Works with any platform that supports custom HTML/CSS
-- **Modular Architecture**: Enable or disable features as needed
-- **Debug Support**: Built-in logging and troubleshooting tools
-
-## Getting Started
-
-### Quick Start (Recommended)
-
-Use jsDelivr's free CDN for instant deployment:
-
-#### 1. Add to Head Section
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/css/core/aura.css">
-<script>
-window.AuraConfig = {
-  version: 'v1',
-  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
-  debug: false
-};
-</script>
+```
+aura/
+├── aura.css          # Complete brand color system and CSS utilities
+├── aura.js           # Core enhancement library with simple API
+├── test-runner.js    # Unified test runner for any domain
+├── package.json      # npm scripts and dependencies
+└── archive/          # Legacy v1/ files (archived)
 ```
 
-#### 2. Add Before Closing Body Tag
+**That's it!** No complex directories, no confusing file paths. Just clean, simple files.
+
+## 🚀 Quick Start
+
+### Option 1: CDN (Recommended)
+
 ```html
-<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/js/core/aura.js"></script>
+<!-- Add to <head> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css">
+
+<!-- Add before closing </body> -->
+<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js"></script>
 ```
 
-#### 3. Optional: Custom Color Overrides
+### Option 2: Download and Host
+
+1. Download [`aura.css`](./aura.css) and [`aura.js`](./aura.js)
+2. Upload to your website
+3. Include in your HTML:
+
+```html
+<!-- Add to <head> -->
+<link rel="stylesheet" href="./aura.css">
+
+<!-- Add before closing </body> -->
+<script src="./aura.js"></script>
+```
+
+**Done!** Aura will automatically initialize and enhance your site.
+
+## 🎨 Brand Color System
+
+Aura includes The Ingenuity Co's complete brand palette as CSS variables:
+
+### Primary Colors
 ```css
 :root {
-  --aura-primary: #A8D5E5;
-  --aura-secondary: #D4C5E8;
-  --aura-accent: #B8E6D3;
-  --aura-neutral: #8B9DC3;
+    --aura-primary: #A8D5E5;           /* Soft Sky Blue */
+    --aura-secondary: #D4C5E8;         /* Gentle Lavender */
+    --aura-accent: #B8E6D3;            /* Mint Green */
+    --aura-neutral: #8B9DC3;           /* Muted Blue-Gray */
 }
 ```
 
-## Deployment Options
-
-### Option 1: Super.so Integration
-
-Perfect for Super.so websites (Pro plan required):
-
-#### Step 1: Navigate to Settings
-Go to **Site Settings → Custom Code** in your Super.so dashboard
-
-#### Step 2: Header Code
-Add this to the **Header** section:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/css/core/aura.css">
-<script>
-window.AuraConfig = {
-  version: 'v1',
-  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
-  debug: false,
-  features: {
-    brandStyling: true,
-    interactiveElements: true,
-    accessibility: true
-  }
-};
-</script>
-```
-
-#### Step 3: Footer Code
-Add this to the **Footer** section:
-```html
-<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/js/core/aura.js"></script>
-```
-
-#### Step 4: Super.so Specific Styling (Optional)
-Add to **CSS** section:
+### Usage Examples
 ```css
-/* Super.so/Notion specific overrides */
-.notion-page-content {
-  font-family: var(--aura-font-family) !important;
+.my-button {
+    background-color: var(--aura-primary);
+    color: var(--aura-white);
+    border-radius: var(--aura-radius-md);
+    transition: var(--aura-transition-fast);
 }
 
-.notion-link {
-  color: var(--aura-primary) !important;
-  transition: var(--aura-transition-fast) !important;
-}
-
-.notion-link:hover {
-  color: var(--aura-primary-hover) !important;
+.my-container {
+    background: var(--aura-gradient-primary);
+    padding: var(--aura-spacing-lg);
+    box-shadow: var(--aura-shadow-subtle);
 }
 ```
 
-### Option 2: Custom CDN Deployment
-
-For enterprise or self-hosted solutions:
-
-#### File Structure
-```
-your-cdn.com/
-└── v1/
-    ├── css/
-    │   └── core/
-    │       └── aura.css
-    └── js/
-        └── core/
-            └── aura.js
-```
-
-#### Implementation
+### Utility Classes
 ```html
-<!-- Head Section -->
-<link rel="stylesheet" href="https://your-cdn.com/v1/css/core/aura.css">
-<script>
-window.AuraConfig = {
-  version: 'v1',
-  cdnBase: 'https://your-cdn.com/v1',
-  debug: false
-};
-</script>
-
-<!-- Before Closing Body -->
-<script src="https://your-cdn.com/v1/js/core/aura.js"></script>
+<div class="aura-bg-primary aura-text-white">Primary background</div>
+<div class="aura-gradient-secondary">Gradient background</div>
+<button class="aura-bg-accent">Accent button</button>
 ```
 
-#### Performance Optimization
-```apache
-# .htaccess for Apache
-<FilesMatch "\.(css|js)$">
-  Header set Cache-Control "public, max-age=31536000"
-  Header set Expires "Thu, 31 Dec 2025 23:59:59 GMT"
-</FilesMatch>
+## 🔧 JavaScript API
+
+Aura provides a simple, powerful JavaScript API:
+
+### Basic Usage
+```javascript
+// Auto-initializes on page load, or manually:
+window.Aura.init();
+
+// Available methods:
+window.Aura.reinject();              // Re-inject CSS (useful for SPAs)
+window.Aura.injectJS('v1/js/...');   // Inject additional JS files
+window.Aura.isNextJS();              // Detect Next.js/Super.so platforms
 ```
 
-### Option 3: Platform-Specific Deployments
+### Platform Detection
+```javascript
+if (window.Aura.isNextJS()) {
+    console.log('Running on Next.js/Super.so platform');
+    // Automatic route change detection enabled
+}
+```
 
-#### GitHub Pages
-1. Fork this repository
-2. Enable GitHub Pages in settings
-3. Use your repository URL:
+### Advanced Usage
+```javascript
+// Disable auto-initialization
+window.AuraNoAutoInit = true;
+
+// Manual setup with custom configuration
+window.Aura.init();
+```
+
+## 🏗️ Platform Support
+
+Aura automatically detects and optimizes for:
+
+- **Next.js** - Route change detection, SPA compatibility
+- **Super.so** - Automatic domain detection and optimization
+- **Static Sites** - Works on any HTML/CSS/JS website
+- **WordPress, Squarespace, Webflow** - Copy/paste integration
+
+### Super.so Integration
+
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/YOUR-USERNAME/aura@main/v1/css/core/aura.css">
+<!-- In Super.so Custom Code → Header -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css">
+
+<!-- In Super.so Custom Code → Footer -->
+<script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js"></script>
 ```
 
-#### WordPress
-1. Install "Insert Headers and Footers" plugin
-2. Add header and footer code
-3. Test in staging first
+## 🧪 Testing & Development
 
-#### Webflow
-1. **Project Settings → Custom Code**
-2. Add CSS and config to **Head Code**
-3. Add JavaScript to **Footer Code**
+Aura includes a unified test runner that can test on any domain:
 
-#### Squarespace
-1. **Settings → Advanced → Code Injection**
-2. Add header code to **Header** section
-3. Add footer code to **Footer** section
+### NPM Scripts
 
-#### Other Platforms
-- **Vercel/Netlify**: Add to HTML templates
-- **Jekyll/Hugo**: Include in layout files
-- **React/Vue**: Import in main component
+```bash
+npm run demo          # Interactive testing with browser
+npm run test          # Automated testing with reports
+npm run test:headless # Headless automated testing
+```
 
-## Configuration
+### Test Runner Features
 
-### Basic Configuration
+- **Interactive Mode** - Keep browser open for manual testing
+- **Automated Mode** - Run tests and generate reports
+- **Screenshot Capture** - Automatic screenshots with timestamps
+- **Domain Testing** - Tests on theingenuity.co by default
+- **Console Commands** - `status`, `reinject`, `screenshot`, `test`
+
+### Interactive Commands
+
+```bash
+🔮 Aura> status        # Show version and platform info
+🔮 Aura> reinject      # Manual CSS reinjection
+🔮 Aura> screenshot    # Take screenshot
+🔮 Aura> test          # Run functionality tests
+🔮 Aura> help          # Show all commands
+```
+
+### Custom Domain Testing
+
+Edit [`test-runner.js`](./test-runner.js) to test on your domain:
+
 ```javascript
-window.AuraConfig = {
-  version: 'v1',
-  cdnBase: 'https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1',
-  debug: false,
-  features: {
-    brandStyling: true,       // Brand colors and typography
-    interactiveElements: true, // Hover effects and animations
-    accessibility: true       // Enhanced accessibility
-  }
+const CONFIG = {
+    website: 'https://your-domain.com',  // Change this
+    // ... rest of config
 };
 ```
 
-### Debug Mode
-```javascript
-window.AuraConfig = { debug: true };
-```
-Enables detailed console logging for troubleshooting.
+## 📝 Implementation Examples
 
-### Feature Toggle
-```javascript
-// Disable specific features
-window.AuraConfig = {
-  features: {
-    brandStyling: false,     // Keep existing styles
-    interactiveElements: true // Only add interactions
-  }
-};
-```
-
-## Verification
-
-After deployment, check these items:
-
-1. **Visual Check** - Brand colors appear on buttons and headers
-2. **Console Check** - Look for Aura initialization messages
-3. **Network Tab** - All files load with 200 status codes
-4. **Mobile Test** - Responsive behavior works correctly
-
-## Troubleshooting
-
-### Common Issues
-
-#### Files Not Loading
-- Verify CDN URLs are accessible
-- Check CORS headers allow cross-origin requests
-- Ensure cache headers are configured
-
-#### Styles Not Applying
-- Check for CSS conflicts with existing styles
-- Verify Aura CSS loads before custom styles
-- Try `!important` declarations if needed
-
-#### JavaScript Errors
-- Enable debug mode for detailed logging
-- Check script loading order in dev tools
-- Look for conflicts with existing libraries
-
-### Quick Fixes
-
-#### Emergency Disable
-```javascript
-window.AuraConfig = { features: {} };
+### Basic Website
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Site with Aura</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css">
+</head>
+<body>
+    <div class="aura-bg-light" style="padding: var(--aura-spacing-xl)">
+        <h1 class="aura-text-primary">Welcome to My Site</h1>
+        <button class="aura-bg-primary" style="padding: var(--aura-spacing-md); border: none; border-radius: var(--aura-radius-md); color: white;">
+            Get Started
+        </button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js"></script>
+</body>
+</html>
 ```
 
-#### Gradual Rollback
-```javascript
-window.AuraConfig = {
-  features: {
-    brandStyling: false,  // Disable styling
-    interactiveElements: true  // Keep interactions
-  }
-};
+### React/Next.js
+```jsx
+// pages/_document.js or app/layout.js
+import Head from 'next/head'
+
+export default function MyApp() {
+  return (
+    <div>
+      <Head>
+        <link 
+          rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css" 
+        />
+        <script 
+          src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js"
+          async
+        />
+      </Head>
+      <main className="aura-bg-light">
+        {/* Your content */}
+      </main>
+    </div>
+  )
+}
 ```
 
-## Browser Support
+## 🔄 Migration from v1.x
 
-- **Modern Browsers**: Chrome 60+, Firefox 60+, Safari 12+, Edge 79+
-- **CSS Features**: Custom Properties, Grid, Flexbox
-- **JavaScript**: ES6+ with graceful degradation
+### What Changed in v3.0.0
 
-## Version History
+- **✅ Simplified Structure** - `v1/css/core/aura.css` → `aura.css`
+- **✅ Simplified Structure** - `v1/js/core/aura.js` → `aura.js`  
+- **✅ Unified Testing** - Multiple runners → single `test-runner.js`
+- **✅ Enhanced API** - More methods and better platform detection
+- **✅ Legacy Support** - Old files moved to `archive/` directory
 
-- **v1.0.0** - Initial release with brand identity and interactive elements
-- **v1.1.0** (Planned) - Enhanced component library
-- **v1.2.0** (Planned) - Analytics integration
+### Migration Steps
 
-## Contributing
+1. **Update imports:**
+   ```html
+   <!-- Old v1.x -->
+   <link href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/css/core/aura.css">
+   <script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/v1/js/core/aura.js"></script>
+   
+   <!-- New v3.0.0 -->
+   <link href="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css">
+   <script src="https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js"></script>
+   ```
 
-Aura is developed and maintained by The Ingenuity Co Development Team. For issues, suggestions, or contributions, please visit [theingenuity.co](https://theingenuity.co).
+2. **Update configuration:**
+   ```javascript
+   // Old v1.x config (remove)
+   window.AuraConfig = {
+     version: 'v1',
+     cdnBase: '...',
+     features: {...}
+   };
+   
+   // New v3.0.0 (automatic, no config needed!)
+   // Just use: window.Aura.init()
+   ```
 
-## License
+3. **Test your integration:**
+   ```bash
+   npm run demo  # Test interactively
+   npm run test  # Run automated tests
+   ```
 
-MIT License - see [LICENSE](LICENSE) file for details.
+### Backward Compatibility
+
+v3.0.0 maintains API compatibility where possible. Legacy files are preserved in the [`archive/`](./archive/) directory for reference.
+
+## 🎯 Use Cases
+
+### Content Creators
+- **Super.so Sites** - Add to Custom Code for instant brand styling
+- **Blog Posts** - Use color classes for highlights and callouts
+- **Landing Pages** - Apply brand gradients and spacing
+
+### Developers  
+- **Rapid Prototyping** - Instant brand-consistent styling
+- **Client Projects** - Professional color palette out-of-the-box
+- **Design Systems** - Foundation for larger design systems
+
+### Designers
+- **Brand Consistency** - Ensure proper color usage across domains
+- **Accessibility** - Built-in high contrast and reduced motion support
+- **Responsive Design** - Mobile-first utilities and spacing
+
+## 🔍 Troubleshooting
+
+### Files Not Loading
+```bash
+# Test CDN availability
+curl -I https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.css
+curl -I https://cdn.jsdelivr.net/gh/theingenuityco/aura@main/aura.js
+```
+
+### Styles Not Applying
+```javascript
+// Check if Aura loaded
+console.log('Aura loaded:', !!window.Aura);
+console.log('Aura version:', window.Aura?.version);
+
+// Check CSS injection
+console.log('CSS injected:', !!document.getElementById('aura-core-css'));
+
+// Manual reinject if needed
+window.Aura.reinject();
+```
+
+### Platform Issues
+```javascript
+// Check platform detection
+console.log('Platform detected:', window.Aura.isNextJS() ? 'Next.js' : 'Standard');
+
+// Force reinitialization
+window.Aura.init();
+```
+
+## 📊 Browser Support
+
+- **Modern Browsers** - Chrome 60+, Firefox 60+, Safari 12+, Edge 79+
+- **CSS Features** - Custom Properties (CSS Variables), Flexbox, Grid
+- **JavaScript** - ES6+ with graceful degradation
+- **Accessibility** - WCAG 2.1 AA compliant color contrast
+
+## 🔗 Resources
+
+- **Website** - [theingenuity.co](https://theingenuity.co)
+- **Source Code** - [GitHub Repository](https://github.com/theingenuityco/aura)
+- **Issues & Support** - [GitHub Issues](https://github.com/theingenuityco/aura/issues)
+- **License** - [MIT License](./LICENSE)
+
+## 📋 Version History
+
+### v3.0.0 (Current)
+- ✅ **Simplified Architecture** - Root-level files replace complex directories
+- ✅ **Enhanced API** - Improved JavaScript methods and platform detection
+- ✅ **Unified Testing** - Single test runner with interactive and automated modes
+- ✅ **Brand System** - Complete CSS variable system for all colors and utilities
+- ✅ **Legacy Archive** - All v1.x files preserved in archive directory
+
+### v1.x (Archived)
+- Legacy version with v1/ directory structure
+- Files available in [`archive/v1/`](./archive/v1/) for reference
+
+## 👥 Contributing
+
+Aura is developed and maintained by The Ingenuity Co Development Team. 
+
+For issues, feature requests, or contributions:
+1. Visit [theingenuity.co](https://theingenuity.co) 
+2. Open issues on [GitHub](https://github.com/theingenuityco/aura/issues)
+3. Follow contribution guidelines in repository
+
+## 📄 License
+
+MIT License - see [`LICENSE`](./LICENSE) file for details.
+
+---
+
+<div align="center">
+  
+**🌟 Made with digital energy by [The Ingenuity Co](https://theingenuity.co) 🌟**
+
+*Simple. Clean. Ready to use.*
+
+</div>

@@ -1,13 +1,18 @@
 {
   "name": "aura",
-  "version": "1.0.0",
-  "description": "The Ingenuity Co's digital presence extension from theingenuity.co",
-  "main": "v1/js/core/aura.js",
+  "version": "3.0.0",
+  "description": "Simple aura.css and aura.js that can be imported to enhance your site",
+  "main": "./aura.js",
   "files": [
-    "v1/"
+    "aura.css",
+    "aura.js",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
-    "test": "node test.js"
+    "test": "node test-runner.js --automated",
+    "demo": "node test-runner.js --interactive",
+    "test:headless": "node test-runner.js --headless"
   },
   "repository": {
     "type": "git",
