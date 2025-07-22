@@ -1,18 +1,20 @@
 {
   "name": "aura",
-  "version": "3.0.0",
-  "description": "Simple aura.css and aura.js that can be imported to enhance your site",
+  "version": "4.1.0",
+  "description": "Simple aura.css and aura.js with auto-styling that can be imported to enhance your site",
   "main": "./aura.js",
   "files": [
     "aura.css",
     "aura.js",
+    "aura.super-so.js",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "test": "node test-runner.js --automated",
-    "demo": "node test-runner.js --interactive",
-    "test:headless": "node test-runner.js --headless"
+    "start": "node cli.js",
+    "aura": "node cli.js",
+    "demo": "node cli.js https://theingenuity.co",
+    "test": "node validate-aura-core.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,12 @@
     "enhancement",
     "brand-colors",
     "interactive-elements",
-    "cdn"
+    "cdn",
+    "auto-styling",
+    "automatic",
+    "plug-and-play",
+    "DOM",
+    "classes"
   ],
   "author": {
     "name": "Rudraprasad Das",

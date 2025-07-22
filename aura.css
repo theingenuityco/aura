@@ -76,7 +76,7 @@
 /* ===== AURA BRAND COLOR UTILITY CLASSES ===== */
 
 /* Background Colors */
-.aura-bg-primary { background-color: var(--aura-primary) !important; }
+.aura-bg-primary { background: var(--aura-primary); color: var(--aura-white) !important; }
 .aura-bg-secondary { background-color: var(--aura-secondary) !important; }
 .aura-bg-accent { background-color: var(--aura-accent) !important; }
 .aura-bg-neutral { background-color: var(--aura-neutral) !important; }
@@ -103,6 +103,23 @@
 .aura-gradient-secondary {
     background: var(--aura-gradient-secondary) !important;
     color: var(--aura-white);
+}
+
+/* Button Utilities */
+.aura-btn-primary {
+    background: var(--aura-primary);
+    color: var(--aura-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--aura-radius-md);
+    transition: var(--aura-transition-fast);
+    cursor: pointer;
+}
+
+.aura-btn-primary:hover {
+    background: var(--aura-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--aura-shadow-hover);
 }
 
 /* ===== ACCESSIBILITY ENHANCEMENTS ===== */
